@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+		<meta name="description" content="">
+		<meta name="author" content="ThemeBucket">
+		<link rel="shortcut icon" href="#" type="image/png">
+		<title>实例编辑页</title>
+
+		<!--pickers css-->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-datepicker/css/datepicker.css" />
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-datetimepicker/css/datetimepicker.css" />
+
+		<!--common-->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="sticky-header left-side-collapsed">
+		<div class="box_tan"></div>
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li><a class="toggle-btn"><i class="fa fa-bars"></i></a></li>
+						<li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>首页</span></a>
+							<ul class="sub-menu-list">
+								<li class="active"><a href="index.html">实验室</a></li>
+								<li><a href="#"> 设置</a></li>
+							</ul>
+						</li>
+						<li><a href=""><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
+			</div>
+			<!-- left side end-->
+			<!-- main content start 头部-->
+			<div class="main-content">
+				<div class="header-section">
+					<div class="logo">
+						<a href="index.html"><img src="" alt=""></a>
+					</div>
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul class="notification-menu clearfix">
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-search"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-plus-circle"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <img src="images/avatar-mini.jpg" alt="" /> John Doe <span class="caret"></span> </a>
+								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+									<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+									<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+									<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--notification menu end -->
+				</div>
+				<!-- header section end-->
+
+				<!--右边内容 start-->
+				<section class="wrapper">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<section class="panel ">
+								<header class="panel-heading">
+									<span class="title_lab">
+									<input type="text" class="" value="" placeholder="请输入仪器的名字"></input><span> #编辑</span>
+									</span>
+									<span class="mytools pull-left">
+										<a class="fa fa-chevron-left" href="javascript:goBack()"></a>
+									</span>
+									<span class="edit-right-btn pull-right">
+										<a class="text-primary" href="#" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash-o"></i></a>
+										<a class="btn btn-success" href="">保存</a>
+									</span>
+									<span class="edit_add_attr pull-right">
+										<a class="" href="#" data-toggle="modal" data-target="#attrModal"><i class="fa fa-plus-circle"></i>添加模板属性</a>
+									</span>
+								</header>
+								<form action="#" method="get" class="form-horizontal">
+									<div class="right_edit_main">
+
+										<!--start form group  每一行属性 -->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">检测分析所有仪器</label>
+											<div class="col-lg-8">
+												<input type="text" class="form-control">
+											</div>
+											<div class="col-lg-1 edit-paperclip">
+												<a href="javascript:openUploadModal('111');" data-toggle="modal"><i class="fa fa-paperclip fa-2x"></i></a>
+											</div>
+											<!--如果有图片就显示图片层-->
+											<div class="right_edit_img col-lg-10 col-lg-offset-2">
+												<ul class="detail_img">
+													<li>
+														<a rel="lightbox-demo" href="http://www.ah.xinhuanet.com/2014-11/21/1113348221_14165377719651n.jpg" title="检测仪器摆放图" class="lb lb_warsaw1"><img class="img-responsive" src="images/image1.jpg" /></a>
+														<div class="image-compont">
+															<input type="text" value="检测报告" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+													<li>
+														<a rel="lightbox-demo" href="http://pt.fjsen.com/bbs/data/attachment/forum/201307/31/142052b1prztt8eutbg5et.jpg" title="女帝最强cos" class="lb lb_warsaw1"><img class="img-responsive" src="http://pt.fjsen.com/bbs/data/attachment/forum/201307/31/142052b1prztt8eutbg5et.jpg" /></a>
+														<div class="image-compont">
+															<input type="text" value="图片" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<!--end of 图片层-->
+										</div>
+										<!-- end of form-group 一行属性结束-->
+										
+										<!--start form group  选择框 -->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">仪器状态</label>
+											<div class="col-lg-8 input-group-connect">
+												<select class="form-control" id="selection">
+                                						<option>In calibration</option>
+                                						<option>Normal</option>
+                                						<option>In repair</option>
+                                						<option>Disposal</option>
+                            						</select>
+											</div>
+											<div class="col-lg-2 edit-paperclip">
+												<a href="javascript:openUploadModal('111');" data-toggle="modal"><i class="fa fa-paperclip fa-2x"></i></a>
+											</div>
+										</div>
+										<!-- end of form-group 选择框结束-->
+
+										<!--start form group 有关联按钮的选择 -->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">检测负责人</label>
+											<div class="col-lg-8 input-group-connect">
+												<input type="text" class="form-control" value="" \>
+												<span class="input-group-btn add-on">
+                                                     	<button class="btn btn-default" type="button" onclick="openConnectModal(this,'type1');"><i class="fa fa-plus-circle"></i></button>
+                                                 </span>
+											</div>
+											<div class="col-lg-2 edit-paperclip">
+												<a href="javascript:openUploadModal('111');" data-toggle="modal"><i class="fa fa-paperclip fa-2x"></i></a>
+											</div>
+										</div>
+										<!-- end of form-group 一行属性结束-->
+
+										<!--start form group  每一行属性 -->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">仪器供应商</label>
+											<div class="col-lg-8 input-group-connect">
+												<input type="text" class="form-control" value="" \>
+												<span class="input-group-btn add-on">
+                                                     	<button class="btn btn-default" type="button" onclick="openConnectModal(this,'type2');"><i class="fa fa-plus-circle"></i></button>
+                                                 </span>
+											</div>
+											<div class="col-lg-2 edit-paperclip">
+												<a href="openUploadModal('111');" data-toggle="modal"><i class="fa fa-paperclip fa-2x"></i></a>
+											</div>
+										</div>
+										<!-- end of form-group 一行属性结束-->
+
+										<!--start form group 长文本-->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">检测分析结果报告</label>
+											<div class="col-lg-8">
+												<textarea class="form-control" rows="5"></textarea>
+											</div>
+											<div class="col-lg-1 edit-paperclip">
+												<a href="" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-paperclip fa-2x"></i></a>
+											</div>
+											<!--如果有图片就显示图片层-->
+											<div class="right_edit_img col-lg-10 col-lg-offset-2">
+												<ul class="detail_img">
+													<li>
+														<a rel="lightbox-demo" href="http://www.ah.xinhuanet.com/2014-11/21/1113348221_14165377719651n.jpg" title="检测仪器摆放图" class="lb lb_warsaw1">
+															<img class="img-responsive" src="http://www.ah.xinhuanet.com/2014-11/21/1113348221_14165377719651n.jpg" />
+														</a>
+														<div class="image-compont">
+															<input type="text" value="检测报告" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+													<li>
+														<a rel="lightbox-demo" href="http://pt.fjsen.com/bbs/data/attachment/forum/201307/31/142052b1prztt8eutbg5et.jpg" title="女帝最强cos" class="lb lb_warsaw1">
+															<img class="img-responsive" src="images/image2.jpg" />
+														</a>
+														<div class="image-compont">
+															<input type="text" value="图片" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<!--end of 图片层-->
+										</div>
+										<!-- end of form-group-->
+										<!--start form group 日期-->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">检测周期</label>
+											<div class="col-lg-5 col-md-6 ">
+												<div data-date-format="yyyy-mm-dd" data-date="" class="input-append date default-date-picker">
+													<input type="text" readonly="" value="2016-05-12" size="10px" class="form-control">
+													<span class="input-group-btn add-on">
+                                                     	<button class="btn btn-primary date-set" type="button"><i class="fa fa-calendar"></i></button>
+                                                     </span>
+												</div>
+												<!--设置提醒周期的文字  i 标签后面加2个空格-->
+												<p class="help-block" id="remind-lable-1"><i class="fa fa-calendar"></i>&nbsp;&nbsp;提醒：无提醒</p>
+												<p class="help-block email-block" id="remind-person-1"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;提醒人:</p>
+												<!--如果是编辑模式，请使用下面这条格式-->
+												<!--<p class="help-block" id="remind-person-1"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;提醒人：周熊熊&nbsp;exmaple@email.ocm</p>-->
+											</div>
+											<div class="col-lg-2 edit-paperclip">
+												<a href="" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-paperclip fa-2x"></i></a>
+												<!--这个按钮是属性为日期，或者日期和时间的时候出现的-->
+												<a href="javascript:;" data-toggle="dropdown" class="alarm-btn"><i class="fa fa-angle-down fa-2x"></i></a>
+												<!--data-id=2的编号和repeat-picker-2要一致，后面js才能取到值-->
+												<ul class="dropdown-menu" data-id="1" id="repeat-picker-1">
+													<li class="repeat-picker-item selected"><a>无提醒</a></li>
+													<li class="repeat-picker-item "><a>一般提醒</a></li>
+													<li class="repeat-picker-item "><a>每天重复</a></li>
+													<li class="repeat-picker-item "><a>每周重复</a></li>
+													<li class="repeat-picker-item "><a>每月重复</a></li>
+													<li class="repeat-picker-item "><a>每年重复</a></li>
+													<li class="repeat-picker-item "><a>工作日重复</a></li>
+													<li class="divider"></li>
+													<li class="repeat-picker-item "><a class="alert-btn" data-id="1" data-target="#alert-modal" href="javascript:;">自定义重复</a></li>
+												</ul>
+											</div>
+										</div>
+										<!-- end of form-group-->
+
+										<!--start form group 日期与时间-->
+										<div class="form-group">
+											<label class="col-lg-2 col-sm-2 control-label">检测时间</label>
+											<div class="col-lg-5 col-md-5 ">
+												<div class="input-append date form_datetime">
+													<input type="text" readonly="" value="" size="10px" class="form-control">
+													<span class="input-group-btn add-on">
+                                                     	<button class="btn btn-primary date-set" type="button"><i class="fa fa-calendar"></i></button>
+                                                     </span>
+												</div>
+												<!--设置提醒周期的文字 i 标签后面加2个空格-->
+												<p class="help-block" id="remind-lable-2"><i class="fa fa-calendar"></i>&nbsp;&nbsp;提醒：未提醒</p>
+												<p class="help-block email-block" id="remind-person-2"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;提醒人：</p>
+											</div>
+											<div class="col-lg-2 edit-paperclip">
+												<a href="" data-toggle="modal" data-target="#uploadModal"><i class="fa fa-paperclip fa-2x"></i></a>
+												<!--这个按钮是属性为日期，或者日期和时间的时候出现的-->
+												<a href="javascript:;" data-toggle="dropdown" class="alarm-btn"><i class="fa fa-angle-down fa-2x"></i></a>
+												<!--data-id=2的编号和repeat-picker-2要一致，后面js才能取到值-->
+												<ul class="dropdown-menu" data-id="2" id="repeat-picker-2">
+													<li class="repeat-picker-item selected"><a>无提醒</a></li>
+													<li class="repeat-picker-item "><a>一般提醒</a></li>
+													<li class="repeat-picker-item "><a>每天重复</a></li>
+													<li class="repeat-picker-item "><a>每周重复</a></li>
+													<li class="repeat-picker-item "><a>每月重复</a></li>
+													<li class="repeat-picker-item "><a>每年重复</a></li>
+													<li class="repeat-picker-item "><a>工作日重复</a></li>
+													<li class="divider"></li>
+													<li class="repeat-picker-item"><a class="alert-btn" data-id="2" data-target="#alert-modal" href="javascript:;">自定义重复</a></li>
+												</ul>
+											</div>
+											<!--如果有图片就显示图片层-->
+											<div class="right_edit_img col-lg-10 col-lg-offset-2">
+												<ul class="detail_img">
+													<li>
+														<a rel="lightbox-demo" href="http://www.ah.xinhuanet.com/2014-11/21/1113348221_14165377719651n.jpg" title="检测仪器摆放图" class="lb lb_warsaw1"><img class="img-responsive" src="images/image1.jpg" /></a>
+														<div class="image-compont">
+															<input type="text" value="检测报告" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+													<li>
+														<a rel="lightbox-demo" href="http://pt.fjsen.com/bbs/data/attachment/forum/201307/31/142052b1prztt8eutbg5et.jpg" title="女帝最强cos" class="lb lb_warsaw1"><img class="img-responsive" src="images/image2.jpg" /></a>
+														<div class="image-compont">
+															<input type="text" value="图片" />
+															<a href="#"><i class="fa fa-trash-o"></i></a>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<!--end of 图片层-->
+										</div>
+										<!-- end of form-group-->
+									</div>
+									<!--right_edit_main-->
+								</form>
+
+						</div>
+						</section>
+					</div>
+			</div>
+			</section>
+			<!--right end-->
+			</div>
+			<!-- main content end-->
+		</section>
+
+		<!--start Modal for 上传附件 图片-->
+		<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">上传附件</h4>
+					</div>
+					<div class="modal-body">
+						<form enctype="multipart/form-data" class="form-horizontal">
+							<div class="form-group">
+								<label class="col-lg-2 control-label">图片名称</label>
+								<div class="col-lg-10">
+									<input class="form-control" id="role" placeholder="请输入图片名称">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2">
+									<input class="form-control" id="fileupload" type="file" name="files[]" data-url="">
+								</div>
+							</div>
+							<div align="right">
+								<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+								<a onclick="urlSubmit()" class="btn btn-primary" data-dismiss="modal">确定</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+
+		<!--  周期选择弹框  -->
+		<div id="alert-modal" class="alert-modal">
+			<form>
+				<!--重复类型-->
+				<div class="form-group">
+					<label>重复:</label>
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+							<span id="repeat-span">每周重复</span> <span class="fa fa-chevron-down"></span> 
+						</button>
+						<ul class="dropdown-menu">
+							<li class="repeat-freq " data-id="3"><a>每天重复</a></li>
+							<li class="repeat-freq selected" data-id="2"><a>每周重复</a></li>
+							<li class="repeat-freq " data-id="1"><a>每月重复</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--end of 重复类型-->
+				<!--重复周期-->
+				<div class="form-group"> <label>间隔:</label>
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> 
+																		<span id="interval-span">1</span> <span class="fa fa-chevron-down"></span> 
+																	</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu-repeat-interval">
+							<li class="repeat-interval " data-id="1"><a>1</a></li>
+							<li class="repeat-interval " data-id="2"><a>2</a></li>
+							<li class="repeat-interval " data-id="3"><a>3</a></li>
+							<li class="repeat-interval " data-id="4"><a>4</a></li>
+							<li class="repeat-interval " data-id="5"><a>5</a></li>
+							<!--<li class="repeat-interval selected" data-id="6"><a>6</a></li>-->
+						</ul>
+					</div> <span class="unit-span">周</span>
+				</div>
+				<!--end of 重复周期-->
+				<!-- 周的七天选择 与 月的31天选择-->
+				<div class="form-group">
+					<ul class="optional-days">
+						<li data-id="0" class="optional-day  toggle-weekday-handle">一</li>
+						<!--<li data-id="1" class="optional-day  toggle-weekday-handle active">二</li>-->
+						<li data-id="1" class="optional-day  toggle-weekday-handle">二</li>
+						<li data-id="2" class="optional-day  toggle-weekday-handle">三</li>
+						<li data-id="3" class="optional-day  toggle-weekday-handle">四</li>
+						<li data-id="4" class="optional-day  toggle-weekday-handle">五</li>
+						<li data-id="5" class="optional-day  toggle-weekday-handle">六</li>
+						<li data-id="6" class="optional-day  toggle-weekday-handle">日</li>
+
+						<li data-id="1" class="optional-day  toggle-monthday-handle">1</li>
+						<li data-id="2" class="optional-day  toggle-monthday-handle">2</li>
+						<li data-id="3" class="optional-day  toggle-monthday-handle">3</li>
+						<li data-id="4" class="optional-day  toggle-monthday-handle">4</li>
+						<li data-id="5" class="optional-day  toggle-monthday-handle">5</li>
+						<li data-id="6" class="optional-day  toggle-monthday-handle">6</li>
+						<li data-id="7" class="optional-day  toggle-monthday-handle">7</li>
+						<li data-id="8" class="optional-day  toggle-monthday-handle">8</li>
+						<li data-id="9" class="optional-day  toggle-monthday-handle">9</li>
+						<li data-id="10" class="optional-day  toggle-monthday-handle">10</li>
+						<li data-id="11" class="optional-day  toggle-monthday-handle">11</li>
+						<li data-id="12" class="optional-day  toggle-monthday-handle">12</li>
+						<li data-id="13" class="optional-day  toggle-monthday-handle">13</li>
+						<li data-id="14" class="optional-day  toggle-monthday-handle">14</li>
+						<li data-id="15" class="optional-day  toggle-monthday-handle">15</li>
+						<li data-id="16" class="optional-day  toggle-monthday-handle">16</li>
+						<li data-id="17" class="optional-day  toggle-monthday-handle">17</li>
+						<li data-id="18" class="optional-day  toggle-monthday-handle">18</li>
+						<li data-id="19" class="optional-day  toggle-monthday-handle">19</li>
+						<li data-id="20" class="optional-day  toggle-monthday-handle">20</li>
+						<li data-id="21" class="optional-day  toggle-monthday-handle">21</li>
+						<li data-id="22" class="optional-day  toggle-monthday-handle">22</li>
+						<li data-id="23" class="optional-day  toggle-monthday-handle">23</li>
+						<li data-id="24" class="optional-day  toggle-monthday-handle">24</li>
+						<li data-id="25" class="optional-day  toggle-monthday-handle">25</li>
+						<li data-id="26" class="optional-day  toggle-monthday-handle">26</li>
+						<li data-id="27" class="optional-day  toggle-monthday-handle">27</li>
+						<li data-id="28" class="optional-day  toggle-monthday-handle">28</li>
+						<li data-id="29" class="optional-day  toggle-monthday-handle">29</li>
+						<li data-id="30" class="optional-day  toggle-monthday-handle">30</li>
+						<li data-id="31" class="optional-day  toggle-monthday-handle">31</li>
+					</ul>
+				</div>
+				<!--每 1 周 二，三重复 字符串样式-->
+				<div class="form-group">
+					<span class="repeat-description">每 <span id="var-interval-span"></span> <span class="unit-span">周</span>
+					<span id="var-repeat-span"></span> 重复</span>
+				</div>
+				<div class="form-group">
+					<button type="button" id="close-btn" data-id="" class="btn btn-primary pull-right">确定</button>
+				</div>
+			</form>
+		</div>
+		<!--end of alert-modal-->
+
+		<!-- Modal for 警告框 删除信息确认-->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-dialog-center">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel" style="color: red;">提示</h4>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" id="url" />
+						<h4>确定要删除吗？删除后将不可以找回。</h4><br/>
+						<div align="right">
+							<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+							<a onclick="urlSubmit()" class="btn btn-primary" data-dismiss="modal">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+
+		<!-- Modal 添加提醒人信息 -->
+		<div class="modal fade" id="emailModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">设置提醒人</h4>
+					</div>
+					<div class="modal-body">
+						<form action="#" method="get" class="form-horizontal">
+							<div class="form-group">
+								<label class="col-lg-3 col-sm-3 control-label">提醒人</label>
+								<div class="col-lg-8">
+									<input class="form-control" id="remain_name" placeholder="请输入提醒人姓名">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 col-sm-3 control-label">Email 地址</label>
+								<div class="col-lg-8">
+									<input type="email" class="form-control" id="remain_email" placeholder="example@email.com">
+								</div>
+							</div>
+							<div align="right">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<!--<button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>-->
+								<a class="btn btn-primary btn-email-submit" data-dismiss="modal">确定</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+
+		<!-- Modal 选择关联的实例 -->
+		<div class="modal fade" id="connectModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">选择关联数据<span style="color: #C0C0C0;">#人员</span></h4>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" id="connect-hiden" />
+						<div class="modal_search">
+							<input type="text" placeholder="搜索"><i class="fa fa-search"></i>
+						</div>
+						<ul class="column-two clearfix">
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>张主管</span></div>
+									<div class="details_three_img">
+										<img class="img-responsive" src="http://www.w2qq.com/uploads/allimg/141013/10194G334-10.jpg" />
+									</div>
+								</a>
+
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>李某某高级工程师</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="http://pt.fjsen.com/bbs/data/attachment/forum/201307/31/142052b1prztt8eutbg5et.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>戚总监</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="http://img4.imgtn.bdimg.com/it/u=3850305668,614327697&fm=21&gp=0.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>吴亦凡</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="http://img4.imgtn.bdimg.com/it/u=9608462,3089569310&fm=21&gp=0.jpg" /></div>
+								</a>
+
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>邓站长</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="http://img1.touxiang.cn/uploads/20130523/23-034106_821.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>Taylor Swift</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="http://img4.imgtn.bdimg.com/it/u=2334388331,3595867494&fm=21&gp=0.jpg" /></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+
+		<!-- Modal 选择关联的实例 供应商备选 -->
+		<div class="modal fade" id="SupplyModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">选择关联数据<span style="color: #C0C0C0;">#供应商</span></h4>
+					</div>
+					<div class="modal-body">
+						<input type="hidden" id="connect-hiden" />
+						<div class="modal_search">
+							<input type="text" placeholder="搜索"><i class="fa fa-search"></i>
+						</div>
+						<ul class="column-two clearfix">
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>AB</span></div>
+									<div class="details_three_img ver"><img class="img-responsive" src="" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>安捷伦 Agilent</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="images/icon_agilent.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>赛默飞世尔 Thermo Fisher</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="images/icon_thermo.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>岛津 SHIMADZU</span></div>
+									<div class="details_three_img"><img class="img-responsive" src="images/icon_shimadzu.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>沃特世 WATERS</span></div>
+									<div class="details_three_img ver"><img class="img-responsive" src="images/icon_waters.jpg" /></div>
+								</a>
+							</li>
+							<li class="clearfix">
+								<a href="javascript:;" class="connect-data">
+									<div class="details_three_text"><span>PE</span></div>
+									<div class="details_three_img ver"><img class="img-responsive" src="images/icon_PerkinElmer.jpeg" /></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+		
+		<!-- Modal 添加属性摸态框 -->
+		<div class="modal fade" id="attrModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">某某模板</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div> <!--end of body-->
+				</div>
+			</div>
+		</div>
+		<!--end of modal-->
+
+		<!-- Placed js at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/modernizr.min.js"></script>
+		<script src="js/jquery.nicescroll.js"></script>
+		<script src="js/scripts.js"></script>
+
+		<!--pickers plugins-->
+		<script type="text/javascript" src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-daterangepicker/moment.min.js"></script>
+		<!--<script type="text/javascript" src="js/bootstrap-daterangepicker/daterangepicker.js"></script>-->
+		<!--<script type="text/javascript" src="js/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>-->
+		<!--<script type="text/javascript" src="js/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>-->
+
+		<!--pickers initialization-->
+		<script src="js/pickers-init.js"></script>
+		<!--图片放大-->
+		<link type="text/css" rel="stylesheet" href="css/lightbox.min.css">
+		<script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ui.rlightbox.js"></script>
+
+		<script>
+			//		存放日期,或者周的数组--提醒事件使用
+			var arr = new Array();
+
+			function goBack() {
+				history.go(-1);
+			}
+
+			function openUploadModal(id) {
+				//				alert(id);
+				$('#hidenID').val(id);
+				$('#uploadModal').modal('show');
+			}
+			// 打开大图
+			jQuery(function($) {
+				// run rlightbox
+				$(".lb").rlightbox();
+			});
+			/*-----------------------------
+					二次打开模态框
+			-------------------------------*/
+			+ function() {
+				//向下箭头点击事件
+				$(".alert-btn").on("click", function() {
+					var X = $(this).offset().top - 200;
+					var Y = $(this).offset().left;
+					$("#alert-modal").css({
+						'top': X,
+						'left': Y
+					});
+					var temp = $(this).attr("data-id");
+					$("#close-btn").attr("data-id", temp);
+					$("#alert-modal").show();
+					$(".toggle-weekday-handle").show();
+					$(".toggle-monthday-handle").hide();
+				});
+				//选择周期后的确认按钮
+				$("#close-btn").on("click", function() {
+					var dataId = $(this).attr("data-id");
+					$("#alert-modal").hide();
+					//					remind-lable-2
+					var str = $(".repeat-description").text();
+					//					alert(str);
+					$("#remind-lable-" + dataId).html("<i class=\"fa fa-calendar\"></i>&nbsp;&nbsp;提醒：" + str);
+					//打开email地址填写框
+					$('#emailModal').modal('show');
+				});
+				$('.alarm-btn').on('click', function() {
+					$("#alert-modal").hide();
+				});
+			}();
+			/*---- 二次模态框结束 ---*/
+			//处理勾选问题 （一般提醒，每周重复那个）
+			$('.repeat-picker-item').on("click", function() {
+					var dataId = $(this).parent(".dropdown-menu").attr("data-id");
+					$("#repeat-picker-" + dataId + " .repeat-picker-item").removeClass('selected');
+					$(this).addClass("selected");
+					var str = $(this).text();
+					if (str == "无提醒" || str == "自定义重复") {
+						$("#remind-person-" + dataId).hide();
+					} else {
+						$(".btn-email-submit").attr("data-id", dataId);
+						//打开email地址填写框
+						$('#emailModal').modal('show');
+					}
+					$("#remind-lable-" + dataId).html("<i class=\"fa fa-calendar\"></i>&nbsp;&nbsp;提醒：" + str);
+				})
+				//选择重复频率 每日，每周，每月
+			$('.repeat-freq').on("click", function() {
+				//清除选择值active
+				$(".optional-day").removeClass("active");
+				//清空选择字段
+				$('#var-interval-span').html("");
+				$('#var-repeat-span').html("");
+				arr = new Array();
+				$(".repeat-freq").removeClass('selected');
+				$(this).addClass("selected");
+				var val = (this).innerText;
+				$('#repeat-span').html(val);
+				var temp = $(this).attr("data-id");
+				if (temp == 1) { //month
+					$('.unit-span').html("月");
+					$(".optional-days").show();
+					$(".toggle-weekday-handle").hide();
+					$(".toggle-monthday-handle").show();
+				}
+				if (temp == 2) { // weekday
+					$('.unit-span').html("周");
+					$(".optional-days").show();
+					$(".toggle-weekday-handle").show();
+					$(".toggle-monthday-handle").hide();
+				}
+				if (temp == 3) { // day
+					$('.unit-span').html("天");
+					$(".optional-days").hide();
+					$('#var-repeat-span').html(" ");
+				}
+			});
+			//间隔取值
+			$('.repeat-interval').on("click", function() {
+					$(".repeat-interval").removeClass('selected');
+					$(this).addClass("selected");
+					var val = $(this).attr("data-id");
+					$('#interval-span').html(val);
+					$('#var-interval-span').html(val);
+				})
+				//获取周，日的点击值
+			$('.optional-day').on("click", function() {
+					var getDay = (this).innerText;
+					if ($(this).hasClass('active')) {
+						$(this).removeClass('active');
+						minusDay(getDay);
+					} else {
+						$(this).addClass("active");
+						addDay(getDay);
+					}
+				})
+				/*-----------------------------
+					   邮件地址填写弹框事件
+				-------------------------------*/
+			$(".btn-email-submit").on("click", function() {
+				//赋值
+				var dataId = $(this).attr("data-id");
+				var name = $("#remain_name").val();
+				var email = $("#remain_email").val();
+				//判断是否email格式
+				var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+				if (reg.test(email)) {
+					$("#remind-person-" + dataId).show();
+					$("#remind-person-" + dataId).html("<i class='glyphicon glyphicon-user'></i>&nbsp;&nbsp;提醒人：" + name + " " + email);
+				} else {
+					alert("请输入正确的邮件格式");
+					return false;
+				}
+			});
+
+			function addDay(day) {
+				arr.push(day);
+				$('#var-repeat-span').html(arr.join(","));
+			}
+
+			function minusDay(day) {
+				arr.remove(day);
+				$('#var-repeat-span').html(arr.join(","));
+			}
+			//			数组排序
+			Array.prototype.indexOf = function(val) {
+				for (var i = 0; i < this.length; i++) {
+					if (this[i] == val) return i;
+				}
+				return -1;
+			};
+			//			数组删除
+			Array.prototype.remove = function(val) {
+				var index = this.indexOf(val);
+				if (index > -1) {
+					this.splice(index, 1);
+				}
+			};
+			/*-----------------------------
+						图片上传
+			-------------------------------*/
+			//清空modal
+			$("#uploadModal").on("hidden.bs.modal", function() {
+				$('#uploadModal .form-control').val("");
+			});
+			/*-----------------------------
+				   打开关联数据的模态框
+			-------------------------------*/
+			function openConnectModal(obj,type) {
+//				alert(type);
+				var div = obj.parentNode.parentNode;
+				var inputNode = div.childNodes[1];
+				var labelNode = obj.parentNode.parentNode.parentNode.childNodes[1];
+				
+				var bool = labelNode.innerText.indexOf("供应商");
+				if(bool>0){
+					$('#SupplyModal').modal('show');	
+				}else{
+					$('#connectModal').modal('show');
+				}
+				
+				$(document).on('click', '.connect-data', function() {
+					var name = (this).innerText;
+					inputNode.value = name;
+					$('#connectModal').modal('hide');
+					$('#SupplyModal').modal('hide');
+					//清空状态
+					div = "";
+					inputNode = "";
+				});
+			}
+		</script>
+	</body>
+
+</html>

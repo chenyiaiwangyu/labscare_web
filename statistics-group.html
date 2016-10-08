@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+		<meta name="description" content="">
+		<meta name="author" content="ThemeBucket">
+		<link rel="shortcut icon" href="images/head-icon.png" type="image/png">
+		<title>统计</title>
+
+		<!--dashboard calendar-->
+		<link href="css/clndr.css" rel="stylesheet">
+		<!--common-->
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- ECharts单文件引入 -->
+		<script src="js/echart3/echart3.min.js"></script>
+		<!--echart3主题 macarons-->
+		<script src="js/echart3/echart3.theme.js"></script>
+
+		<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="sticky-header left-side-collapsed">
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li><a class="toggle-btn"><i class="fa fa-bars"></i></a></li>
+						<!--<li><a href="index.html"><i class="fa fa fa-home"></i><span>首页</span></a>-->
+						<!--<li class="menu-list "><a href="index.html"><i class="fa fa fa-home"></i><span>首页</span></a>
+							<ul class="sub-menu-list">
+								<li class="active"><a href="index.html">实验室</a></li>
+								<li><a href="#"> 设置</a></li>
+							</ul>
+						</li>-->
+						<li><a href="index.html"><i class="fa fa-laptop"></i><span>实验室</span></a>
+							<li><a href=""><i class="fa fa-bar-chart-o"></i><span>统计</span></a>
+
+								<li><a href=""><i class="fa fa-sign-in"></i> <span>Log Out</span></a></li>
+
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
+			</div>
+			<!-- left side end-->
+			<!-- main content start 头部-->
+			<div class="main-content bgcolor-white">
+				<div class="header-section">
+					<div class="logo">
+						<a href="index.html"><img src="" alt=""></a>
+					</div>
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul class="notification-menu clearfix">
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-search"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-plus-circle"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <img src="images/avatar-mini.jpg" alt="" /> John Doe <span class="caret"></span> </a>
+								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+									<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+									<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+									<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--notification menu end -->
+				</div>
+				<!-- header section end-->
+				<!--right start 右边主内容 -->
+				<section>
+					<div class="statistics-header">
+						<div class="lefttitle">
+							<div class="topmenu fixed">
+								<ul>
+									<!-- ngRepeat: item in apptypes -->
+									<li class="ng-scope "><a href="statistics.html">仪器</a></li>
+									<li class="ng-scope active"><a href="statistics-group.html">分组</a></li>
+									<li class="ng-scope "><a href="statistics-brand.html">品牌</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--end of statistics-header-->
+					<!--图表分组开始-->
+					<div class="container-fluid">
+						<div class="row">
+							<!--
+                            	作者：twilight1100@yahoo.com
+                            	时间：2016-05-31
+                            	描述：一个 panel 的开始
+                            -->
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body" align="center">
+										<!--<span>样品数</span>-->
+										<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+										<div id="groupCount" style="height:300px"></div>
+									</div>
+								</div>
+							</div>
+							<!--end of col-->
+							<!--
+                            	作者：twilight1100@yahoo.com
+                            	时间：2016-05-31
+                            	描述：一个 panel 的开始
+                            -->
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body" align="center">
+										<!--<span>样品数</span>-->
+										<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+										<div id="sampleCount" style="height:300px"></div>
+									</div>
+								</div>
+							</div>
+							<!--end of col-->
+							<!--
+                            	作者：twilight1100@yahoo.com
+                            	时间：2016-05-31
+                            	描述：一个 panel 的开始
+                            -->
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body" align="center">
+										<!--<span>样品数</span>-->
+										<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+										<div id="verificationCount" style="height:300px"></div>
+									</div>
+								</div>
+							</div>
+							<!--end of col-->
+							<!--
+                            	作者：twilight1100@yahoo.com
+                            	时间：2016-05-31
+                            	描述：一个 panel 的开始
+                            -->
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+										<div id="fitCount" style="height:300px"></div>
+									</div>
+								</div>
+							</div>
+							<!--end of col-->
+							<!--
+                            	作者：twilight1100@yahoo.com
+                            	时间：2016-05-31
+                            	描述：一个 panel 的开始
+                            -->
+							<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+										<div id="changeCount" style="height:300px"></div>
+									</div>
+								</div>
+							</div>
+							<!--end of col-->
+
+						</div>
+						<!--end of row-->
+
+						<div class="row">
+							<div class="statistics-table col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th class="table-l">名称</th>
+											<th>样品数</th>
+											<th>检定次数</th>
+											<th>维修次数</th>
+											<th>更换耗材次数</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th class="table-l" scope="row">检测水质仪器分组
+											</th>
+											<td>71</td>
+											<td>267</td>
+											<td>44</td>
+											<td>39</td>
+										</tr>
+										<tr>
+											<th class="table-l" scope="row">检测气体仪器分组</th>
+											<td>60</td>
+											<td>158</td>
+											<td>27</td>
+											<td>65</td>
+										</tr>
+										<tr>
+											<th class="table-l" scope="row">检测声音仪器分组</th>
+											<td>45</td>
+											<td>67</td>
+											<td>98</td>
+											<td>83</td>
+										</tr>
+										<tr>
+											<th class="table-l" scope="row">检测土样仪器分组</th>
+											<td>67</td>
+											<td>138</td>
+											<td>78</td>
+											<td>28</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--end of container-fluid 图表分组结束-->
+
+				</section>
+				<!--right end 主内容结束-->
+
+			</div>
+			<!-- main content end-->
+		</section>
+		<!-- Placed js at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/modernizr.min.js"></script>
+		<script src="js/jquery.nicescroll.js"></script>
+		<script src="js/scripts.js"></script>
+
+		<!--初始化图标-->
+		<script src="js/echart3/echart-init-group.js"></script>
+		<script type="text/javascript">
+			//分组比例
+			groupCount();
+			//样品数
+			sampleCount();
+			//检定次数
+			verificationCount();
+			//维修次数
+			fitCount();
+			//更换次数
+			changeCount();
+		</script>
+	</body>
+
+</html>

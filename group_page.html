@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+		<meta name="description" content="">
+		<meta name="author" content="ThemeBucket">
+		<link rel="shortcut icon" href="#" type="image/png">
+		<title>分组页</title>
+
+		<!--dashboard calendar-->
+		<link href="css/clndr.css" rel="stylesheet">
+		<!--common-->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body class="sticky-header left-side-collapsed">
+		<div class="box_tan"></div>
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li><a class="toggle-btn"><i class="fa fa-bars"></i></a></li>
+						<li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>首页</span></a>
+							<ul class="sub-menu-list">
+								<li class="active"><a href="index.html">实验室</a></li>
+								<li><a href="#"> 设置</a></li>
+							</ul>
+						</li>
+						<li><a href=""><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
+			</div>
+			<!-- left side end-->
+			<!-- main content start 头部-->
+			<div class="main-content">
+				<div class="header-section">
+					<div class="logo">
+						<a href="index.html"><img src="" alt=""></a>
+					</div>
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul class="notification-menu clearfix">
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-search"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-plus-circle"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <img src="images/avatar-mini.jpg" alt="" /> John Doe <span class="caret"></span> </a>
+								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+									<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+									<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+									<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--notification menu end -->
+				</div>
+				<!-- header section end-->
+
+				<!--right start-->
+				<div class="right container">
+					<div class="details_one row">
+						<ul class="all_instrument clearfix">
+							<!--分组页面开始-->
+							<li class="col-md-3 col-lg-3">
+								<!--原来的a标签改成了div-->
+								<a class="group-frame" href="list.html">
+									<div class="instrument_big">
+										<strong>所有仪器</strong>
+										<span><small>数量.10</small></span>
+									</div>
+									<ul class="instrument_img clearfix">
+										<li><img src="http://img.wzfzl.cn/uploads/allimg/150719/co150G9101303-24.jpg"></li>
+										<li><img src="http://m.3fantizi.com/article/pic/TX8049_10.jpg"></li>
+										<li><img src="http://www.qq745.com/uploads/allimg/150123/1-150123154027.jpg"></li>
+									</ul>
+								</a> <!--end of group-frame-->
+							</li>
+							<!--将列表改为3个占位格-->
+							<li class="col-md-3 col-lg-3">
+								<!--在原来的a标签 同一级的上面添加编辑和删除按钮-->
+								<div class="action-btn-group">
+									<a href="javascript:;" onclick="javascript:openEdition(1,'分组名称');" class=""><i class="glyphicon glyphicon-edit"></i></a>
+									<a href="javascript:;" onclick="javascript:openDelete(1);" class=""><i class="glyphicon glyphicon-trash"></i></a>
+								</div>
+								<a href="list.html" class="group-frame">
+									<div class="instrument_big">
+										<strong>水质仪器</strong>
+										<span><small>数量.3</small></span>
+									</div>
+									<ul class="instrument_img clearfix">
+										<li><img src=""></li>
+										<li><img src=""></li>
+										<li><img src=""></li>
+									</ul>
+								</a> <!--end of group-frame-->
+							</li>
+							<li class="col-md-3 col-lg-3">
+								<div class="action-btn-group">
+									<a href="javascript:;" onclick="javascript:openEdition(2,'土质仪器');" class=""><i class="glyphicon glyphicon-edit"></i></a>
+									<a href="javascript:;" onclick="javascript:openDelete(2);" class=""><i class="glyphicon glyphicon-trash"></i></a>
+								</div>
+								<a class="group-frame" href="list.html">
+									<div class="instrument_big"><strong>土质仪器</strong><span><small>数量.3</small></span></div>
+									<ul class="instrument_img clearfix">
+										<li><img src=""></li>
+										<li><img src=""></li>
+										<li><img src=""></li>
+									</ul>
+								</a>
+							</li>
+							<li class="add_instrument col-md-3 col-lg-3">
+								<a class="right_add group-frame" href="javascript:openAddModal();" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle"></i><span>新建分组</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--right end-->
+
+			</div>
+			<!--start Modal for create-->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-center">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">新建分组</h4>
+						</div>
+						<div class="modal-body">
+							<form action="#" method="get">
+								<div class="form-group">
+									<input class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入新建分组名称">
+								</div>
+								<div align="right">
+									<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+									<button type="submit" class="btn btn-primary submit-btn" data-dismiss="modal">确认</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+			
+			<!--start Modal for 编辑分组-->
+			<div class="modal fade" id="editModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-dialog-center modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">编辑分组</h4>
+						</div>
+						<div class="modal-body">
+							<form action="#" method="get">
+								<div class="form-group">
+									<input class="form-control input-lg" id="groupName" placeholder="请输入分组名称">
+								</div>
+								<div align="right">
+									<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+									<button type="submit" class="btn btn-primary submit-btn" data-dismiss="modal">确认</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+			
+			<!-- Modal for 警告框 删除信息确认-->
+			<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-dialog-center">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel" style="color: red;">提示</h4>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" id="url" />
+							<h4>确定要删除吗？删除后将不可以找回。</h4><br/>
+							<div align="right">
+								<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+								<a onclick="urlSubmit()" class="btn btn-primary" data-dismiss="modal">确定</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+			<!-- main content end-->
+		</section>
+		<!-- Placed js at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/modernizr.min.js"></script>
+		<script src="js/jquery.nicescroll.js"></script>
+		<script src="js/scripts.js"></script>
+		<!--下拉-->
+		<script type="text/javascript">
+			//弹框按钮点击事件
+			$(function() {
+				$(".submit-btn").click(function() {
+					$('#myModal').modal('hide')
+				});
+			})
+			
+			//打开添加框
+			function openAddModal(){
+				$('#myModal').modal('show');
+			}
+			
+			//打开编辑框
+			function openEdition(id,name){
+				$('#groupName').val(name);
+				$('#editModal').modal('toggle');
+			}
+			
+			//打开编辑框
+			function openDelete(id){
+				$('#url').val(id); //给会话中的隐藏属性URL赋值
+				$('#deleteModal').modal('toggle');
+			}
+			
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+		<meta name="description" content="">
+		<meta name="author" content="ThemeBucket">
+		<link rel="shortcut icon" href="#" type="image/png">
+		<title>仪器模板页</title>
+
+		<!--dashboard calendar-->
+		<link href="css/clndr.css" rel="stylesheet">
+		<!--common-->
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style-responsive.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+		<!--[if lt IE 10]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+		<!--[if lt IE 11]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+
+	</head>
+
+	<body class="sticky-header left-side-collapsed">
+		<section>
+			<!-- left side start-->
+			<div class="left-side sticky-left-side">
+
+				<!--logo and iconic logo start-->
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""></a>
+				</div>
+				<!--logo and iconic logo end-->
+
+				<div class="left-side-inner">
+					<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li><a class="toggle-btn"><i class="fa fa-bars"></i></a></li>
+						<!--<li><a href="index.html"><i class="fa fa fa-home"></i><span>首页</span></a>-->
+						<!--<li class="menu-list "><a href="index.html"><i class="fa fa fa-home"></i><span>首页</span></a>
+							<ul class="sub-menu-list">
+								<li class="active"><a href="index.html">实验室</a></li>
+								<li><a href="#"> 设置</a></li>
+							</ul>
+						</li>-->
+						<li><a href="index.html"><i class="fa fa-laptop"></i><span>实验室</span></a>
+							<li><a href="statistics.html"><i class="fa fa-bar-chart-o"></i><span>统计</span></a>
+
+								<li><a href=""><i class="fa fa-sign-in"></i> <span>Log Out</span></a></li>
+
+					</ul>
+					<!--sidebar nav end-->
+
+				</div>
+			</div>
+			<!-- left side end-->
+			<div class="lest_nav_two">
+				<ul>
+					<li class="nav_two_top">
+						<b>仪器模板</b><a href="index.html"><i class="fa fa-angle-left"></i></a>
+						<a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle"></i></a>
+					</li>
+					<li class="nav_two_input">
+						<div class="nav_two_search"><input type="text" placeholder="搜索成员" /><i class="fa fa-search"></i></div>
+					</li>
+					<li class="nav_two_on"><a href="">仪器模板</a></li>
+					<li><a href="model_page2.html">水质检测仪器</a></li>
+					<li><a href="">土质检测仪器</a></li>
+					<li><a href="">样本检测仪器</a></li>
+				</ul>
+			</div>
+			<!-- left side end-->
+
+			<!-- main content start-->
+			<div class="main-content other_content">
+				<div class="header-section">
+					<!--notification menu start -->
+					<div class="menu-right">
+						<ul class="notification-menu clearfix">
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown"> <i class="fa fa-search"></i></a>
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="modal" data-target="#connectModal"> <i class="fa fa-plus-circle"></i></a>
+
+							</li>
+							<li>
+								<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> <img src="images/avatar-mini.jpg" alt="" /> John Doe <span class="caret"></span> </a>
+								<ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+									<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+									<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+									<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!--notification menu end -->
+				</div>
+				<!-- header section end-->
+				<!--right start-->
+				<div class="right">
+					<form action="" method="">
+						<div class="details_one">
+							<div class="details_one_top">
+								<ul class="clearfix">
+									<li><a class="btn btn-success" href="">保存</a></li>
+									<li><a class="details_one_shan" href="javascript:delcfm('删除链接')">删除</a></li>
+									<li><a href="" data-toggle="modal" data-target="#valueModal"><i class="fa fa-plus-circle" ></i></a></li>
+								</ul>
+							</div>
+							<div class="details_one_list container_list">
+								<div data-force="30" class="layer list_block">
+									<ul id="foo" class="block_list block_list_words">
+										<li class="clearfix">
+											<input class="col-lg-3 block_list_input" type="text" placeholder="请输入检查规则" />
+											<input class="col-lg-7 block_list_itwo" type="text" placeholder="属性名称" value="百度" />
+											<i class="fa fa-align-justify col-lg-1"></i>
+											<a href="javascript:delcfm('http://www.baidu.com')" class="col-lg-1"><i class="fa fa-trash-o" style="color: red;"></i></a>
+
+										</li>
+										<li class="clearfix">
+											<input class="block_list_input col-lg-3" type="text" placeholder="请输入检查规则" />
+											<input class="block_list_itwo col-lg-7" type="text" placeholder="属性名称" value="谷歌" />
+											<i class="fa fa-align-justify col-lg-1"></i>
+											<a href="javascript:delcfm('http://www.google.com')" class="col-lg-1"><i class="fa fa-trash-o" style="color: red;"></i></a>
+
+										</li>
+										<li class="clearfix">
+											<input class="block_list_input col-lg-3" type="text" placeholder="请输入检查规则" />
+											<input class="block_list_itwo col-lg-7" type="text" placeholder="属性名称" value="youtube" />
+											<i class="fa fa-align-justify col-lg-1"></i>
+											<a href="javascript:delcfm('http://www.youtube.com')" class="col-lg-1"><i class="fa fa-trash-o" style="color: red;"></i></a>
+
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--right end-->
+
+			</div>
+			<!-- main content end-->
+
+			<!-- Modal 添加模板 -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-dialog-center modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">添加模板</h4>
+						</div>
+						<div class="modal-body">
+							<form action="#" method="get">
+								<div class="form-group">
+									<input class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入名字">
+								</div>
+								<div align="right">
+									<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+									<button type="submit" class="btn btn-primary submit-btn" data-dismiss="modal">确认</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+
+			<!------------------------ 
+				Modal 添加模板属性 
+			-------------------------->
+			<div class="modal fade" id="valueModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">添加属性</h4>
+						</div>
+						<div class="modal-body">
+							<form action="#" method="get" class="form-horizontal">
+								<div class="form-group">
+									<label class="col-lg-3 col-sm-3 control-label">检验检测机构资质认证评审</label>
+									<div class="col-lg-9">
+										<input class="form-control" id="role" placeholder="请输入规则">
+										<p class="help-block">例如：4.2.1</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 col-sm-3 control-label">属性名称</label>
+									<div class="col-lg-9">
+										<input class="form-control" id="role1" placeholder="请输入名称">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 col-sm-3 control-label">属性类型</label>
+									<div class="col-lg-9">
+										<select class="form-control" id="selection">
+                                				<option>默认</option>
+                                				<option>日期</option>
+                                				<option>日期与时间</option>
+                                				<option>下拉菜单</option>
+                                				<option>长文本</option>
+                            				</select>
+									</div>
+									<div class="droplist-data">
+										<table id="table1" class="col-lg-offset-3 col-lg-9">
+											<tbody id="tbody1">
+												<tr>
+													<td>
+														<div class="col-lg-8">
+															<input class="form-control" placeholder="下拉选项值" name="listValue_0">
+														</div>
+														<div class="col-lg-1 col-md-1 icon-control">
+															<a href="javascript:;" id="addTable"><i class="fa fa-plus-circle fa-2x"></i></a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="col-lg-8">
+															<input class="form-control" placeholder="下拉选项值" name="listValue_1">
+														</div>
+														<div class="col-lg-1 col-md-1 icon-control">
+															<a class="deleteRow" href="javascript:;"><i class="fa fa-times fa-2x"></i></a>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="form-group" id="connect-data">
+									<label class="col-lg-3 col-sm-3 control-label">数据关联</label>
+									<div class="col-lg-8">
+										<input class="form-control" disabled="" id="connect-input" placeholder="请选择管理数据类型">
+									</div>
+									<div class="col-lg-1 col-md-1 icon-control">
+										<a href="javascript:;" data-toggle="modal" data-target="#connectModal"><i class="fa fa-plus-circle fa-2x"></i></a>
+									</div>
+								</div>
+								<div align="right">
+									<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+									<button type="submit" class="btn btn-primary submit-btn" data-dismiss="modal">确认</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+			<!-- Modal for 警告框 删除信息确认-->
+			<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-dialog-center">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel" style="color: red;">提示</h4>
+						</div>
+						<div class="modal-body">
+							<input type="hidden" id="url" />
+							<h4>确定要删除吗？删除后将不可以找回。</h4><br/>
+							<div align="right">
+								<button type="button" class="btn btn-default cancel-btn" data-dismiss="modal">取消</button>
+								<a onclick="urlSubmit()" class="btn btn-primary" data-dismiss="modal">确定</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+
+			<!-- Modal for 关联选择框-->
+			<div class="modal fade" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">数据关联</h4>
+						</div>
+						<div class="modal-body">
+							<div class="modal_item">
+								<div class="modal_search">
+									<input type="text" placeholder="搜索"><i class="fa fa-search"></i>
+								</div>
+								<ul class="clearfix">
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/science37_green.png" class="img-responsive" /></a>
+										<a class="right_text" href="">仪器管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_1.png" class="img-responsive" /></a>
+										<a class="right_text" href="">人员管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_2.png" class="img-responsive" /></a>
+										<a class="right_text" href="">物料管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_3.png" class="img-responsive" /></a>
+										<a class="right_text" href="">方法管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_4.png" class="img-responsive" /></a>
+										<a class="right_text" href="">车辆管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/science37_green.png" class="img-responsive" /></a>
+										<a class="right_text" href="">仪器管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_1.png" class="img-responsive" /></a>
+										<a class="right_text" href="">客户管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_2.png" class="img-responsive" /></a>
+										<a class="right_text" href="">实物管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_3.png" class="img-responsive" /></a>
+										<a class="right_text" href="">管道管理</a>
+									</li>
+									<li class="dataItem-list">
+										<a class="right_img" href="javascript:;"><img src="images/lab_s_4.png" class="img-responsive" /></a>
+										<a class="right_text" href="">货运管理</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!--end of modal-body-->
+					</div>
+				</div>
+			</div>
+			<!--end of modal-->
+
+		</section>
+		<!-- Placed js at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/modernizr.min.js"></script>
+		<script src="js/jquery.nicescroll.js"></script>
+		<script src="js/scripts.js"></script>
+		<script src="js/Sortable.js"></script>
+		<script>
+			(function() {
+				var console = window.console;
+				if (!console.log) {
+					console.log = function() {
+						alert([].join.apply(arguments, ' '));
+					};
+				}
+				window.x = new Sortable(foo, {
+					group: "words",
+					store: {
+						get: function(sortable) {
+							var order = localStorage.getItem(sortable.options.group);
+							return order ? order.split('|') : [];
+						},
+						set: function(sortable) {
+							var order = sortable.toArray();
+							localStorage.setItem(sortable.options.group, order.join('|'));
+						}
+					},
+					onAdd: function(evt) {
+						console.log('onAdd.foo:', evt.item);
+					},
+					onUpdate: function(evt) {
+						console.log('onUpdate.foo:', evt.item);
+					},
+					onRemove: function(evt) {
+						console.log('onRemove.foo:', evt.item);
+					},
+					onStart: function(evt) {
+						console.log('onStart.foo:', evt.item);
+					},
+					onEnd: function(evt) {
+						console.log('onEnd.foo:', evt.item);
+					}
+				});
+				new Sortable(bar, {
+					group: "words",
+					onAdd: function(evt) {
+						console.log('onAdd.bar:', evt.item);
+					},
+					onUpdate: function(evt) {
+						console.log('onUpdate.bar:', evt.item);
+					},
+					onRemove: function(evt) {
+						console.log('onRemove.bar:', evt.item);
+					},
+					onStart: function(evt) {
+						console.log('onStart.foo:', evt.item);
+					},
+					onEnd: function(evt) {
+						console.log('onEnd.foo:', evt.item);
+					}
+				});
+				new Sortable(multi, {
+					draggable: '.tile',
+					handle: '.tile__name'
+				});
+				[].forEach.call(multi.getElementsByClassName('tile__list'), function(el) {
+					new Sortable(el, {
+						group: 'photo'
+					});
+				});
+			})();
+			// Background
+			document.addEventListener("DOMContentLoaded", function() {
+				function setNoiseBackground(el, width, height, opacity) {
+					var canvas = document.createElement("canvas");
+					var context = canvas.getContext("2d");
+					canvas.width = width;
+					canvas.height = height;
+					for (var i = 0; i < width; i++) {
+						for (var j = 0; j < height; j++) {
+							var val = Math.floor(Math.random() * 255);
+							context.fillStyle = "rgba(" + val + "," + val + "," + val + "," + opacity + ")";
+							context.fillRect(i, j, 1, 1);
+						}
+					}
+					el.style.background = "url(" + canvas.toDataURL("image/png") + ")";
+				}
+				setNoiseBackground(document.getElementsByTagName('body')[0], 50, 50, 0.02);
+			}, false);
+		</script>
+		<script src="js/highlight.min.js"></script>
+		<script>
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script type="text/javascript">
+			$(".custom dt img").attr("src", "images/leftf.png");
+			$(function() {
+				$(".custom dd").hide();
+				$(".custom dt").click(function() {
+					$(".custom dt").css({
+						"background-color": "#018ec6"
+					})
+					$(this).css({
+						"background-color": "#018ec6"
+					});
+					$(this).parent().find('dd').removeClass("menu_chioce");
+					$(".custom dt img").attr("src", "images/leftf.png");
+					$(this).parent().find('img').attr("src", "images/leftd.png");
+					$(".menu_chioce").slideUp();
+					$(this).parent().find('dd').slideToggle();
+					$(this).parent().find('dd').addClass("menu_chioce");
+				});
+			});
+			//清空modal
+			$("#valueModal").on("hidden.bs.modal", function() {
+				$('#valueModal .form-control').val("");
+				$('#selection').val("默认");
+				$('.droplist-data').hide();
+				var table = document.getElementById("table1");
+				var trs = table.getElementsByTagName("tr");
+				for (var i = trs.length - 2; i > 0; i--) {
+					table.deleteRow(i);
+				}
+			});
+			//弹框确认按钮点击事件
+			function delcfm(url) {
+				$('#url').val(url); //给会话中的隐藏属性URL赋值
+				$('#deleteModal').modal('toggle')
+			}
+
+			function urlSubmit() {
+				var url = $.trim($("#url").val()); //获取会话中的隐藏属性URL  
+				//				window.location.href = url;
+				alert(url);
+			}
+			//属性类型的下拉菜单监听  初始化时隐藏的
+			$('.droplist-data').hide();
+			$("#selection").change(function() {
+				var str = $(this).find("option:selected").text();
+				if (str == "下拉菜单") {
+					//执行显示
+					$('.droplist-data').show();
+					$('#connect-data').hide();
+					$("#connect-input").val("");
+				} else if (str == "默认") {
+					$('#connect-data').show();
+					$('.droplist-data').hide();
+				} else {
+					//执行隐藏
+					$('.droplist-data').hide();
+					$('#connect-data').hide();
+					$("#connect-input").val("");
+				}
+			})
+			//下来菜单的新增与减少
+			$("#addTable").click(function() {
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+				var div_8 = document.createElement("div");
+				div_8.className = "col-lg-8";
+				//创建input
+				var d_input = document.createElement("input");
+				var table = document.getElementById("table1");
+				var trs = table.getElementsByTagName("tr");
+				d_input.name = "listValue_" + trs.length;
+				d_input.className = "form-control";
+				d_input.placeholder = "下拉选项值";
+				var div_1 = document.createElement("div");
+				div_1.className = "col-lg-1 col-md-1 icon-control";
+				var del_a = document.createElement("a");
+				del_a.className = "deleteRow";
+				del_a.href = "javascript:;";
+				del_a.innerHTML = "<i class=\"fa fa-times fa-2x\"></i>";
+				//添加一层套一层
+				div_8.appendChild(d_input);
+				div_1.appendChild(del_a);
+				td.appendChild(div_8);
+				td.appendChild(div_1);
+				tr.appendChild(td);
+				var tb = document.getElementById("tbody1");
+				tb.appendChild(tr);
+			});
+			//删除点击事件
+			$(document).on("click", ".deleteRow", function() {
+				var tr = (this).parentNode.parentNode.parentNode.rowIndex;
+				var table = document.getElementById('tbody1');
+				table.deleteRow(tr);
+			});
+			//关联数据的方法
+			$('.dataItem-list').on('click', function() {
+				var str = (this).innerText;
+				$("#connectModal").modal('toggle');
+				$("#connect-input").val(str);
+			})
+		</script>
+	</body>
+
+</html>

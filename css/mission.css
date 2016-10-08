@@ -1,0 +1,101 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Microsoft Yahei", "微软雅黑";
+}
+.main_right {
+  margin-left: 300px;
+  background-color: white;
+  min-height: 750px;
+}
+.flow_list {
+  margin: 0 8px 8px 8px;
+  padding: 8px;
+  padding-top: 30px;
+  min-height: 500px;
+  background-color: #FFFFFF;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+  *zoom: 1;
+}
+.flow_list:before,
+.flow_list:after {
+  display: table;
+  content: "";
+}
+.flow_list:after {
+  clear: both;
+}
+.flow_list h3 {
+  float: left;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.flow_list_btn {
+  float: right;
+  display: inline;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+.flow_list_group {
+  float: left;
+  display: inline;
+  margin-top: 20px;
+  list-style: none;
+  overflow: hidden;
+}
+.flow_list_group li {
+  float: left;
+  display: inline;
+  width: 100px;
+  height: 140px;
+  margin: 8px 8px 16px;
+}
+.flow_list_group li:hover {
+  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+  -moz-transform: translateY(-5px);
+  -webkit-transition: all 100ms ease 0s;
+  -moz-transition: all 100ms ease 0s;
+  transition: all 100ms ease 0s;
+  text-decoration: none;
+}
+.flow_list_group li a span {
+  float: left;
+  display: inline;
+  max-height: 40px;
+  _height: expression(document.getElementById("111").offsetHeight>parseInt("40px")?"40px": "auto");
+  overflow: hidden;
+  width: 100px;
+  text-align: center;
+  margin-top: 10px;
+}

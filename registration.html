@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>Registration</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form class="form-signin" action="index.html">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">Registration</h1>
+            <img src="images/login-logo.png" alt=""/>
+        </div>
+
+
+        <div class="login-wrap">
+            
+            <input type="text" autofocus="" placeholder="请输入手机号码" class="form-control">
+            <input type="text" autofocus="" placeholder="请输入手机验证码" class="form-control narrow" style="width: 180px; float: left; clear: both;">
+            <a href="#" class="tel-code" >获取手机验证码</a>
+            
+            <!-- 已获取手机验证码 -->
+            <!--<a href="#" class="tel-code already-get" >重新获取(60s)</a>
+            <p class="prompt-text">* 已发送验证码 3分钟内有效</p>-->
+            
+            
+            <input type="text" autofocus="" placeholder="验证码" class="form-control narrow" style="width: 180px; float: left; clear: both;">
+            <a href="#" class="tel-code" style=" border:0; background: #fff;" ><img style="width: 100%;"  src="https://hwid1.vmall.com/oauth2/oauth2/getCodeImage?session_code_key=p_reg_email_session_ramdom_code_key&count=noany&_t=1466513540789"></a>          
+            <input type="text" autofocus="" placeholder="请输入密码" class="form-control">
+            <input type="text" autofocus="" placeholder="再次确认密码" class="form-control">
+            
+            <!-- 提示 -->
+            <!--<p class="prompt-text">* 验证码不正确 </p>-->
+            
+            <label class="checkbox">
+                <input type="checkbox" value="agree this condition"> I agree to the Terms of Service and Privacy Policy
+            </label>
+            <button type="submit" class="btn btn-lg btn-login btn-block">
+                <i class="fa fa-check"></i>
+            </button>
+
+            <div class="registration">
+                Already Registered.
+                <a href="login.html" class="">
+                    Login
+                </a>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+@charset "utf-8";
+.rightPanel {
+	margin: 10px 10px 10px 25px;
+	border: 1px solid #E6E6E6;
+	min-height: 700px;
+	background-color: #FFFFFF;
+}
+
+body {
+	font-family: "Microsoft Yahei", "微软雅黑";
+}
+
+.smartReport {
+	margin: 10px 10px 10px 20px;
+	border: 1px solid #E6E6E6;
+	min-height: 800px;
+	background-color: #FFFFFF;
+}
+
+.smartReport table {
+	/*margin-top: 16px;*/
+}
+
+.tableQRHeader {
+	margin-top: 32px;
+	border-top: 2px solid #DDDDDD;
+	border-left: 2px solid #DDDDDD;
+	border-right: 2px solid #DDDDDD;
+}
+
+.tableQRHeader:after {
+	display: table;
+	content: "";
+}
+
+.tableQRHeader:after {
+	clear: both;
+}
+
+.tableQRHeader h3 {
+	float: left;
+	display: inline;
+	margin-left: 8px;
+}
+
+.tableQRHeader img {
+	float: right;
+	margin-right: 0px;
+	display: inline;
+	width: 150px;
+	height: 150px;
+}
+
+.smartReport th,
+.smartReport td[head] {
+	text-align: center;
+	cursor: pointer;
+	background-color: #F3F3F3;
+	vertical-align: middle;
+	background-clip: padding-box;
+	position: relative;
+}
+
+.smartReport td {
+	cursor: cell;
+}
+
+.smartReport tr .current {
+	border: 2px solid #5292F7;
+}
+
+.valFrame {
+	word-break: break-word;
+}
+
+#selectValueModel .modal-header span {
+	color: #999999;
+}
+
+#selectValueModel .select_area {
+	height: 100%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	table-layout: fixed;
+	word-wrap: break-word;
+	width: 100%;
+	overflow: hidden;
+}
+
+#selectValueModel .select_area h4 {
+	margin-top: 8px;
+}
+
+.select_area table {
+	overflow: auto;
+}
+
+.checkboxLabel input {
+	margin-right: 8px;
+}
+
+.resizeDivClass {
+	text-align: right;
+	margin-right:-1px ;
+	width: 4px;
+	/*background: #DDDDDD;*/
+	border: 0px;
+	float: right;
+	cursor: col-resize;
+}
+
+.resizeDivClass img{
+	width: 4px;
+	height: 100%;
+}
+
+.bg {
+	font-size: 14px;
+	table-layout: fixed; //这个属性可以隐藏文字
+	border-collapse: separate;
+}
+
+.bg th {
+	font-weight: bold;
+	color: #000000;
+	text-align: center;
+	-webkit-box-sizing: content-box!important;
+	-moz-box-sizing: content-box!important;
+	box-sizing: content-box!important;
+	
+}
+
+.bg td {
+	padding: 8px;
+	color: #111111;
+	/*border-right:1px solid #E6E6E6;*/
+	/*border-bottom:1px solid #E6E6E6;*/
+}

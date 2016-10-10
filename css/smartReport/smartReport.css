@@ -1,11 +1,4 @@
 @charset "utf-8";
-.rightPanel {
-	margin: 10px 10px 10px 25px;
-	border: 1px solid #E6E6E6;
-	min-height: 700px;
-	background-color: #FFFFFF;
-}
-
 body {
 	font-family: "Microsoft Yahei", "微软雅黑";
 }
@@ -22,37 +15,25 @@ body {
 }
 
 .tableQRHeader {
-	margin-top: 32px;
+	width: 100%;
 	border-top: 2px solid #DDDDDD;
 	border-left: 2px solid #DDDDDD;
 	border-right: 2px solid #DDDDDD;
 }
 
-.tableQRHeader:after {
-	display: table;
-	content: "";
-}
-
-.tableQRHeader:after {
-	clear: both;
-}
-
 .tableQRHeader h3 {
-	float: left;
-	display: inline;
 	margin-left: 8px;
 }
 
 .tableQRHeader img {
-	float: right;
-	margin-right: 0px;
-	display: inline;
 	width: 150px;
 	height: 150px;
 }
 
-.smartReport th,
-.smartReport td[head] {
+.smartReport {}
+
+.bg th,
+.bg td[head] {
 	text-align: center;
 	cursor: pointer;
 	background-color: #F3F3F3;
@@ -101,7 +82,7 @@ body {
 
 .resizeDivClass {
 	text-align: right;
-	margin-right:-1px ;
+	margin-right: -1px;
 	width: 4px;
 	/*background: #DDDDDD;*/
 	border: 0px;
@@ -109,7 +90,7 @@ body {
 	cursor: col-resize;
 }
 
-.resizeDivClass img{
+.resizeDivClass img {
 	width: 4px;
 	height: 100%;
 }
@@ -118,6 +99,7 @@ body {
 	font-size: 14px;
 	table-layout: fixed; //这个属性可以隐藏文字
 	border-collapse: separate;
+	margin-bottom: 20px;
 }
 
 .bg th {
@@ -127,7 +109,6 @@ body {
 	-webkit-box-sizing: content-box!important;
 	-moz-box-sizing: content-box!important;
 	box-sizing: content-box!important;
-	
 }
 
 .bg td {
@@ -135,4 +116,42 @@ body {
 	color: #111111;
 	/*border-right:1px solid #E6E6E6;*/
 	/*border-bottom:1px solid #E6E6E6;*/
+}
+
+.rightPanel {
+	margin: 10px 10px 10px 25px;
+	border: 1px solid #E6E6E6;
+	min-height: 600px;
+	background-color: #FFFFFF;
+	position: fixed;
+	right: 20px;
+	top: 50px;
+}
+
+.rightPanel ul {
+	padding: 8px;
+}
+
+#right_tableTitle {
+	color: #969696;
+}
+
+#cell_pos {
+	font-weight: bold;
+	margin-left: 8px;
+}
+
+.rightPanel ul .nav_line {
+	height: 1px;
+	background-color: #C0C0C0;
+	overflow: hidden;
+	margin: 12px 0;
+}
+
+.label_frame{
+	
+}
+
+.img_frame{
+	padding: 30px;
 }

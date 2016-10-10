@@ -1,16 +1,16 @@
 var jsonStr = $("textarea").html();
-var report = angular.module('app', []);
+var report = angular.module('app', ['ui.sortable']);
 report.controller('reportCtrl', function($scope) {
 	//表格初始化
 	$scope.jsonStr = jsonStr;
 	var tables = angular.fromJson($scope.jsonStr);
 	$scope.tables = tables;
 	$scope.colArr = SSheet.colName(SSheet.colArr(tables));
-//	$scope.mywidth = [{"width":"20%"},{"width":"60%"},{"width":"20%"}];
+	//	$scope.mywidth = [{"width":"20%"},{"width":"60%"},{"width":"20%"}];
 
 	//鼠标单击事件  console.log("cool"); ------------------------------>>鼠标对表格单击事件<<------------------
 	$scope.mousedown = function(e) {
-
+			var selectVal = "";
 			if(e.which == 1 || e.which == 3) {
 				if($(e.target).is('div')) {
 					var div = e.target;
@@ -18,15 +18,17 @@ report.controller('reportCtrl', function($scope) {
 					//点击框
 					$("td").removeClass("current");
 					$(td).addClass("current");
-
+					selectVal = $(div).html();
 				} else {
 					var td = e.target || e.srcElement;
 					//点击框
 					$("td").removeClass("current");
 					$(td).addClass("current");
+					var div = $(td).find('div');
+					selectVal = div.html();
 				}
-
 			}
+			$scope.selectValue = selectVal.replace(/\<br>/g, ";");
 
 		} //end of mousedown
 
@@ -170,30 +172,7 @@ report.controller('reportCtrl', function($scope) {
 								alert("亲，这已经是最边缘了");
 								break;
 							}
-							//重写入宽度值
-							//先获取表的总宽度及每个cell的宽度
-							var table = document.getElementsByTagName('table')[index];
-							var cells = table.rows[0].cells;
-							var total = 0;
-							for(var i=1; i<cells.length;i++){
-								total += cells[i].offsetWidth;
-							}
-							//计算出百分比
-							var tdwidth=[];
-							var maxWidth=0;
-							var maxIndex=0;
-							for(var i=1;i<cells.length;i++){
-								var cellwidth = (cells[i].offsetWidth/total)*100;
-								tdwidth.push(cellwidth.toFixed(2));
-								if(cellwidth>maxWidth){
-									maxWidth = cellwidth.toFixed(2);
-									maxIndex=i-1;
-								}
-							}
-							console.log(maxWidth*0.8);
-							tdwidth.changeItem(maxIndex,maxWidth*0.8);
-							tdwidth.insert(parseInt(colIndex),maxWidth*0.2);
-							console.log(toString(tdwidth));
+
 							//写入列值
 							var table = $scope.tables[index];
 							for(var i = 0; i < table.content.length; i++) {
@@ -202,12 +181,9 @@ report.controller('reportCtrl', function($scope) {
 								$scope.tables[index].content[i].value.insert(parseInt(colIndex), newStr);
 							}
 							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
-							$scope.tables[index].tdWidth = tdwidth;
+							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex, 0);
 							$scope.$digest();
-							
-							
-							
-							
+							loadDrag();
 						}
 						break;
 					case 'rightcol':
@@ -223,9 +199,9 @@ report.controller('reportCtrl', function($scope) {
 								$scope.tables[index].content[i].value.insert(parseInt(colIndex) + 1, newStr);
 							}
 							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
-							
-							
+							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex + 1, 1);
 							$scope.$digest();
+							loadDrag();
 						}
 						break;
 					case 'deleterow':
@@ -252,6 +228,7 @@ report.controller('reportCtrl', function($scope) {
 								$scope.tables[index].content[i].value.splice(parseInt(colIndex), 1);
 							}
 							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
+							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex, 2);
 							$scope.$digest();
 
 						}
@@ -295,7 +272,7 @@ report.controller('reportCtrl', function($scope) {
 	}); //end of 右键菜单
 
 	//加载拖拽DIV功能
-	$(function(){
+	var loadDrag = function() {
 		var dragNum = 0;
 		for(var i = 0; i < $scope.colArr.length; i++) {
 			dragNum += $scope.colArr[i].length;
@@ -304,8 +281,11 @@ report.controller('reportCtrl', function($scope) {
 		for(var i = 0; i < dragNum; i++) {
 			drag(document.getElementsByClassName('resizeDivClass')[i]);
 		}
-	});
+	};
 
+	$(function() {
+		loadDrag();
+	});
 	//表格宽度拖拽
 	var drag = function(o, r) {
 			o.p_p_c_gw = function(index) /*取得o.parentNode.parentNode.cells的宽度，兼容IE6和Firefox*/ {
@@ -444,5 +424,51 @@ var SSheet = {
 		}
 
 		return colArr;
+	},
+	//重写入宽度值 
+	//index:第几个表格
+	//colIndex:第几列
+	//s:0=左边，1=右边，2=删除
+	tdWidth: function(index, colIndex, s) {
+		//先获取表的总宽度及每个cell的宽度
+		var table = document.getElementsByTagName('table')[index];
+		var cells = table.rows[0].cells;
+		var total = 0;
+		for(var i = 1; i < cells.length; i++) {
+			total += cells[i].offsetWidth;
+		}
+
+		var tdwidth = [];
+		if(s == 2) {
+			var minWidth = total;
+			var minIndex = 0;
+			for(var i = 1; i < cells.length; i++) {
+				var cellwidth = (cells[i].offsetWidth / total) * 100;
+				tdwidth.push(cellwidth.toFixed(2));
+				if(cellwidth < minWidth) {
+					minWidth = cellwidth.toFixed(2);
+					minIndex = i - 1;
+				}
+			}
+			var newWidth = parseFloat(minWidth) + parseFloat(tdwidth[colIndex]);
+			tdwidth.changeItem(minIndex, parseFloat(newWidth).toFixed(2));
+			tdwidth.splice(colIndex, 1);
+		} else {
+			//计算出百分比
+			var maxWidth = 0;
+			var maxIndex = 0;
+			for(var i = 1; i < cells.length; i++) {
+				var cellwidth = (cells[i].offsetWidth / total) * 100;
+				tdwidth.push(cellwidth.toFixed(2));
+				if(cellwidth > maxWidth) {
+					maxWidth = cellwidth.toFixed(2);
+					maxIndex = i - 1;
+				}
+			}
+			tdwidth.changeItem(maxIndex, (maxWidth * 0.8).toFixed(2));
+			tdwidth.insert(parseInt(colIndex), (maxWidth * 0.2).toFixed(2));
+		}
+		console.log(toString(tdwidth));
+		return tdwidth;
 	}
 }

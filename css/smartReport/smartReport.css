@@ -4,14 +4,29 @@ body {
 }
 
 .smartReport {
-	margin: 10px 10px 10px 20px;
+	margin: 20px;
 	border: 1px solid #E6E6E6;
 	min-height: 800px;
 	background-color: #FFFFFF;
+	width:794px; /*96dpi 计算210mm的像素 794*/
 }
 
-.smartReport table {
-	/*margin-top: 16px;*/
+.item-list {
+	margin: 10px;
+	padding: 0 8px 8px 8px;
+	border: 1px dashed #E6E6E6;
+	border-radius: 5px;
+	
+}
+
+.item-list .myHandle{
+	float: left;
+	cursor: move;
+}
+.item-list .myDelete{
+	float: right;
+	color: red;
+	cursor: pointer;
 }
 
 .tableQRHeader {
@@ -30,20 +45,10 @@ body {
 	height: 150px;
 }
 
-.smartReport {}
-
-.bg th,
-.bg td[head] {
-	text-align: center;
-	cursor: pointer;
-	background-color: #F3F3F3;
-	vertical-align: middle;
-	background-clip: padding-box;
-	position: relative;
-}
 
 .smartReport td {
 	cursor: cell;
+	background-color: #FFFFFF;
 }
 
 .smartReport tr .current {
@@ -95,11 +100,27 @@ body {
 	height: 100%;
 }
 
+.sort_list{
+	/*margin: 8px;*/
+	padding: 8px;
+}
+
 .bg {
 	font-size: 14px;
 	table-layout: fixed; //这个属性可以隐藏文字
 	border-collapse: separate;
 	margin-bottom: 20px;
+	/*width:100%;*/
+}
+
+.bg th,
+.bg td[head] {
+	text-align: center;
+	cursor: pointer;
+	background-color: #F3F3F3;
+	vertical-align: middle;
+	background-clip: padding-box;
+	position: relative;
 }
 
 .bg th {
@@ -111,25 +132,25 @@ body {
 	box-sizing: content-box!important;
 }
 
-.bg td {
-	padding: 8px;
-	color: #111111;
-	/*border-right:1px solid #E6E6E6;*/
-	/*border-bottom:1px solid #E6E6E6;*/
+.label_frame{
+	
 }
 
+.img_frame{
+	padding:20px;
+}
+
+
+/*右边栏 ================================================>>右边栏<<================== */
 .rightPanel {
 	margin: 10px 10px 10px 25px;
+	padding-top: 20px;
 	border: 1px solid #E6E6E6;
 	min-height: 600px;
 	background-color: #FFFFFF;
 	position: fixed;
 	right: 20px;
 	top: 50px;
-}
-
-.rightPanel ul {
-	padding: 8px;
 }
 
 #right_tableTitle {
@@ -141,17 +162,18 @@ body {
 	margin-left: 8px;
 }
 
-.rightPanel ul .nav_line {
-	height: 1px;
-	background-color: #C0C0C0;
-	overflow: hidden;
-	margin: 12px 0;
+.widget{
+	width: 100%;
+	padding: 5px 10px;
+	margin: 8px 0;
+	border: 2px solid #CCCCCC;
+	border-radius: 5px;
+	background-color: #E6E6E6;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center;
+	cursor: move;
 }
 
-.label_frame{
-	
-}
 
-.img_frame{
-	padding: 30px;
-}
+

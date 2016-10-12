@@ -1,12 +1,22 @@
-var jsonStr = $("textarea").html();
+var jsonStr = $("#data_table").html();
+var sampleStr = $("#data_sample").html();
 var report = angular.module('app', ['ui.sortable']);
 report.controller('reportCtrl', function($scope) {
 	//表格初始化
-	$scope.jsonStr = jsonStr;
-	var tables = angular.fromJson($scope.jsonStr);
+	var tables = angular.fromJson(jsonStr);
+	var colArr = SSheet.colName(SSheet.colArr(tables));
+	for(var i = 0; i < tables.length; i++) {
+		var table = tables[i];
+		table.colChr = colArr[i];
+	}
 	$scope.tables = tables;
-	$scope.colArr = SSheet.colName(SSheet.colArr(tables));
-	//	$scope.mywidth = [{"width":"20%"},{"width":"60%"},{"width":"20%"}];
+	//样品初始化
+	var samples = angular.fromJson(sampleStr);
+	var colArr = SSheet.colName(SSheet.colArr(samples));
+	for(var i = 0; i < samples.length; i++) {
+		var sample = samples[i];
+		sample.colChr = colArr[i];
+	}
 
 	//鼠标单击事件  console.log("cool"); ------------------------------>>鼠标对表格单击事件<<------------------
 	$scope.mousedown = function(e) {
@@ -128,7 +138,7 @@ report.controller('reportCtrl', function($scope) {
 								break;
 							}
 							//判断有多少列
-							var colNum = SSheet.colArr($scope.tables)[index];
+							var colNum = $scope.tables[index].colChr.length;
 							var val = [];
 							for(var i = 0; i < colNum; i++) {
 								val.push("/");
@@ -150,7 +160,7 @@ report.controller('reportCtrl', function($scope) {
 							//再次确认是第几行
 							var rowIndex = $(this).parent().attr("id");
 							//判断有多少列
-							var colNum = SSheet.colArr($scope.tables)[index];
+							var colNum = $scope.tables[index].colChr.length;
 							var val = [];
 							for(var i = 0; i < colNum; i++) {
 								val.push("/");
@@ -180,8 +190,12 @@ report.controller('reportCtrl', function($scope) {
 								var newStr = "/";
 								$scope.tables[index].content[i].value.insert(parseInt(colIndex), newStr);
 							}
-							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
-							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex, 0);
+							var colArr = SSheet.colName(SSheet.colArr($scope.tables));
+							for(var i = 0; i < $scope.tables.length; i++) {
+								$scope.tables[i].colChr = colArr[i];
+								console.log($scope.tables[i].colChr);
+							}
+							//							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex, 0);
 							$scope.$digest();
 							loadDrag();
 						}
@@ -198,8 +212,12 @@ report.controller('reportCtrl', function($scope) {
 								var newStr = "/";
 								$scope.tables[index].content[i].value.insert(parseInt(colIndex) + 1, newStr);
 							}
-							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
-							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex + 1, 1);
+							var colArr = SSheet.colName(SSheet.colArr($scope.tables));
+							for(var i = 0; i < $scope.tables.length; i++) {
+								$scope.tables[i].colChr = colArr[i];
+								console.log($scope.tables[i].colChr);
+							}
+							//							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex + 1, 1);
 							$scope.$digest();
 							loadDrag();
 						}
@@ -227,7 +245,11 @@ report.controller('reportCtrl', function($scope) {
 								var newStr = "/";
 								$scope.tables[index].content[i].value.splice(parseInt(colIndex), 1);
 							}
-							$scope.colArr = SSheet.colName(SSheet.colArr($scope.tables));
+							var colArr = SSheet.colName(SSheet.colArr($scope.tables));
+							for(var i = 0; i < $scope.tables.length; i++) {
+								$scope.tables[i].colChr = colArr[i];
+								console.log($scope.tables[i].colChr);
+							}
 							$scope.tables[index].tdWidth = SSheet.tdWidth(index, colIndex, 2);
 							$scope.$digest();
 
@@ -271,13 +293,14 @@ report.controller('reportCtrl', function($scope) {
 
 	}); //end of 右键菜单
 
-	//加载拖拽DIV功能
+	//加载拖拽DIV设置表格宽度功能
 	var loadDrag = function() {
 		var dragNum = 0;
-		for(var i = 0; i < $scope.colArr.length; i++) {
-			dragNum += $scope.colArr[i].length;
+		for(var i = 0; i < $scope.tables.length; i++) {
+			if($scope.tables[i].colChr != null) {
+				dragNum += $scope.tables[i].colChr.length;
+			}
 		}
-
 		for(var i = 0; i < dragNum; i++) {
 			drag(document.getElementsByClassName('resizeDivClass')[i]);
 		}
@@ -340,16 +363,104 @@ report.controller('reportCtrl', function($scope) {
 					}
 					lastX = a.clientX;
 				};
-				d.onmouseup = function() {
+				d.onmouseup = function(e) {
 					if(o.releaseCapture)
 						o.releaseCapture();
 					else if(window.captureEvents)
 						window.captureEvents(Event.MOUSEMOVE | Event.MOUSEUP);
 					d.onmousemove = null;
 					d.onmouseup = null;
+					//把尺寸写入数组
+					var tr = e.target.parentNode.parentNode;
+					var index = $(e.target).parent().parent().parent().parent().attr("id");
+					var tdwidth = [];
+					for(var i = 1; i < tr.cells.length; i++) {
+						var width = parseInt(tr.cells[i].offsetWidth) - 2;
+						tdwidth.push(width);
+					}
+					$scope.tables[index].tdWidth = tdwidth;
 				};
 			};
 		} //end of 表格拖拽
+
+	//拖拽换位排序
+	$scope.sortableOptions = {
+			axis: 'y',
+			placeholder: "item-list",
+			connectWith: ".sort_list",
+			handle: '> .myHandle',
+			update: function(e, ui) {
+				if(ui.item.sortable.model == "can't be moved") {
+					ui.item.sortable.cancel();
+				}
+				loadDrag();
+			}
+		} //end of 上下拖拽
+
+	//右边栏的数据
+
+	var originalDraggables = [{
+		title: '标题',
+		type: "label",
+		tdWidth: [],
+		content: []
+	}, {
+		title: '文本框',
+		type: 'textarea'
+	}, {
+		title: "表格",
+		qrImage: "",
+		tdWidth: [],
+		colChr: ['A', 'B', 'C'],
+		type: "table",
+		header: "none",
+		content: [{
+			"value": ["/", "/", "/"]
+		}, {
+			"value": ["/", "/", "/"]
+		}, {
+			"value": ["/", "/", "/"]
+		}]
+	}, {
+		title: '图片',
+		"URL": "http://58pic.ooopic.com/58pic/14/70/68/34858PIC6sf.jpg",
+		"type": "img",
+		"tdWidth": [],
+		"content": []
+	}];
+	for(var i = 0; i < samples.length; i++) {
+		originalDraggables.push(samples[i]);
+	}
+	$scope.draggables = originalDraggables.map(function(x) {
+		return [x];
+	});
+
+	$scope.changeStatus = function(s) {
+		$scope.modalStatus = s;
+	}
+	$scope.draggableOptions = {
+		connectWith: ".sort_list",
+		stop: function(e, ui) {
+			// if the element is removed from the first container
+			if(ui.item.sortable.source.hasClass('draggable-element-container') &&
+				ui.item.sortable.droptarget &&
+				ui.item.sortable.droptarget != ui.item.sortable.source &&
+				ui.item.sortable.droptarget.hasClass('sort_list')) {
+				// restore the removed item
+				ui.item.sortable.sourceModel.push(ui.item.sortable.model);
+				loadDrag();
+			}
+		}
+	};
+
+	//	删除一个模块组件
+	$scope.deleteComp = function(index) {
+		$scope.tables.splice(index, 1);
+		setTimeout(function() {
+			loadDrag();
+		}, 500);
+		
+	}
 
 });
 //HTML化

@@ -11,6 +11,7 @@
 		<title>报告详情（报告名称）</title>
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/smartReport/jquery.contextMenu.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/smartReport/smartReport.css" />
 
 	</head>
@@ -101,69 +102,104 @@
 					<!--报告配置的开始-->
 					<div class="row">
 						<!--左边栏-->
-						<textarea style="display:none">		
-[{"table_id":"asdasdasdasdasd","title":"委托书","qrImage":"http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","tdWidth":["150","150","50"],"type":"table","content":[{"value":["1.1 业务名称","广西贵港展南预拌混凝土有限公司年产10万立方木昏定图生产线扩建项目","/"]},{"value":["1.2 客户名称","广西贵港展南预拌混凝土有限公司","/"]},{"value":["/","/","/"]},{"value":["1.3 贵港市江南工业园","广西贵港展南预拌混凝土有限公司年产10万立方木昏定图生产线扩建项目","/"]},{"value":["1.4 客户联系人","范秋燕，联系电话 13878596669",""]},{"value":["附件","IMG:http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","/"]}]},{"title":"aaaa","type":"label","tdWidth":[],"content":[]},{"URL":"http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","type":"img","tdWidth":[],"content":[]},{"table_id":"bbbbbbbb","title":"委托书1111","qrImage":"http://120.25.177.94:8080/lab/labRes/twoDimensionCode/62ee88faf8794e65b7fcdde66e5bdc78qr.png","tdWidth":["150","150","150","150"],"type":"table","content":[{"value":["采样依据","1.《大气污染物无组织排放检测技术导则》 \n 2.《工业企业厂界环境噪声排放标准》","/","/"]},{"value":["检查项目","分析依据","检出限/定量限","检测地点"]},{"value":["粉尘","环境空气总悬浮颗粒物的测定 重量法\n （GB 12348-2008）","0.001mg/m^3","实验室"]},{"value":["厂界噪声","工厂企业厂界环境噪声排放标准","30-130dB(A)","现场"]},{"value":["是否有分包项","是","/","/"]}]}]
+						<textarea id="data_table" style="display:none">		
+[{"table_id":"asdasdasdasdasd","title":"委托书","qrImage":"http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","tdWidth":[],"type":"table","content":[{"value":["1.1 业务名称","广西贵港展南预拌混凝土有限公司年产10万立方木昏定图生产线扩建项目","/"]},{"value":["1.2 客户名称","广西贵港展南预拌混凝土有限公司","/"]},{"value":["/","/","/"]},{"value":["1.3 贵港市江南工业园","广西贵港展南预拌混凝土有限公司年产10万立方木昏定图生产线扩建项目","/"]},{"value":["1.4 客户联系人","范秋燕，联系电话 13878596669",""]},{"value":["附件","IMG:http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","/"]}]},{"title":"aaaa","type":"label","tdWidth":[],"content":[]},{"URL":"http://5.26923.com/download/pic/000/336/d9390cd78f44eaa2e78485c36b3df8ce.jpg","type":"img","tdWidth":[],"content":[]},{"table_id":"bbbbbbbb","title":"委托书1111","qrImage":"http://120.25.177.94:8080/lab/labRes/twoDimensionCode/62ee88faf8794e65b7fcdde66e5bdc78qr.png","tdWidth":[],"type":"table","content":[{"value":["采样依据","1.《大气污染物无组织排放检测技术导则》 \n 2.《工业企业厂界环境噪声排放标准》","/","/"]},{"value":["检查项目","分析依据","检出限/定量限","检测地点"]},{"value":["粉尘","环境空气总悬浮颗粒物的测定 重量法\n （GB 12348-2008）","0.001mg/m^3","实验室"]},{"value":["厂界噪声","工厂企业厂界环境噪声排放标准","30-130dB(A)","现场"]},{"value":["是否有分包项","是","/","/"]}]}]
 				</textarea>
+						<textarea id="data_sample" style="display:none">
+					[{"title":"厂界噪音","tdWidth":[],"type":"sample","content":[{"value":["检测日期","检测点位","昼间","夜间"]},{"value":["2016年2月23日","1#项目北面厂界面","53.1","41.1"]},{"value":["2016年2月23日","1#项目北面厂界面","53.2","42.1"]},{"value":["2016年2月23日","2#项目西面厂界面","53.3","43.1"]},{"value":["2016年2月23日","2#项目西面厂界面","53.4","44.1"]},{"value":["2016年2月23日","3#项目南面厂界面","53.5","45.1"]},{"value":["2016年2月23日","3#项目南面厂界面","53.6","46.1"]},{"value":["2016年2月23日","4#项目东面厂界面","53.7","49.1"]},{"value":["2016年2月23日","4#项目东面厂界面","53.8","48.1"]},{"value":["2016年2月24日","1#项目北面厂界面","53.9","47.1"]},{"value":["2016年2月24日","1#项目北面厂界面","53.0","47.2"]},{"value":["2016年2月24日","2#项目西面厂界面","51.3","47.3"]},{"value":["2016年2月24日","2#项目西面厂界面","52.3","47.4"]},{"value":["2016年2月24日","3#项目南面厂界面","54.3","47.5"]},{"value":["2016年2月24日","3#项目南面厂界面","55.3","47.6"]},{"value":["2016年2月24日","4#项目东面厂界面","56.3","47.7"]},{"value":["2016年2月24日","4#项目东面厂界面","57.3","47.8"]}]},{"title":"粉尘","tdWidth":[],"type":"sample","content":[{"value":["检测日期","检测点位","1","2"]},{"value":["2016年2月23日","1#项目北面厂界面","53.1","41.1"]},{"value":["2016年2月23日","1#项目北面厂界面","53.2","42.1"]},{"value":["2016年2月23日","2#项目西面厂界面","53.3","43.1"]},{"value":["2016年2月23日","2#项目西面厂界面","53.4","44.1"]},{"value":["2016年2月23日","3#项目南面厂界面","53.5","45.1"]},{"value":["2016年2月23日","3#项目南面厂界面","53.6","46.1"]},{"value":["2016年2月23日","4#项目东面厂界面","53.7","49.1"]},{"value":["2016年2月23日","4#项目东面厂界面","53.8","48.1"]},{"value":["2016年2月24日","1#项目北面厂界面","53.9","47.1"]},{"value":["2016年2月24日","1#项目北面厂界面","53.0","47.2"]},{"value":["2016年2月24日","2#项目西面厂界面","51.3","47.3"]},{"value":["2016年2月24日","2#项目西面厂界面","52.3","47.4"]},{"value":["2016年2月24日","3#项目南面厂界面","54.3","47.5"]},{"value":["2016年2月24日","3#项目南面厂界面","55.3","47.6"]},{"value":["2016年2月24日","4#项目东面厂界面","56.3","47.7"]},{"value":["2016年2月24日","4#项目东面厂界面","57.3","47.8"]}]}]
+				</textarea>
+
 						<input type="hidden" name="tableid" value="{{tableId}}" />
-						<div class="smartReport col-md-8">
-							<div ng-repeat="table in tables">
-								<p><br/></p>
-								<div ng-if="table.type=='table'">
-									<table class="tableQRHeader">
-										<tr>
-											<td style="width: 80%;">
-												<h3>{{table.title}}</h3>
-											</td>
-											<td>
-												<img src="{{table.qrImage}}" />
-											</td>
-										</tr>
-									</table>
-									<table class="bg table-bordered" id='{{$index}}' width="100%" border="1" cellspacing="0" cellpadding="0">
-										<thead>
+						<div class="smartReport">
+							<div class="sort_list" ui-sortable="sortableOptions" ng-model="tables">
+								<!--ui-sortable="sortableOptions"-->
+								<div class="item-list" ng-repeat="table in tables track by $index">
+									<div class="myHandle"><i class="fa fa-bars"></i></div>
+									<a class="myDelete" ng-click="deleteComp($index)"><i class="fa fa-trash-o"></i></a>
+									<p><br/></p>
+									<div ng-if="table.type=='table'">
+										<table class="tableQRHeader" width="100%" style="display: {{table.header}};">
 											<tr>
-												<th head="corner" style="width: 23px;">@</th>
-												<th class="context-menu-one" head="col" ng-repeat="chr in colArr[$index]" id={{$index}} style="width:{{table.tdWidth[$index]}}%">
-													{{chr}}
-													<div class="resizeDivClass" id="drag{{$index}}"><img width="4" height="100%"></div>
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr ng-repeat="row in table.content" id={{$index}}>
-												<td class="context-menu-one" head="row">{{$index+1}}</td>
-												<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="dclick($event)" ng-repeat="val in row.value track by $index" id={{$index}}>
-													<div class="valFrame" ng-bind-html="val | replaceCode | trustHtml"></div>
+												<td style="width: 80%;">
+													<h3>{{table.title}}</h3>
+												</td>
+												<td>
+													<img src="{{table.qrImage}}" />
 												</td>
 											</tr>
-										</tbody>
-									</table>
+										</table>
+										<table class="bg table-bordered" id='{{$index}}' width="100%" border="1" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<th head="corner" style="width: 24px;">@</th>
+													<th class="context-menu-one" head="col" ng-repeat="chr in table.colChr" id={{$index}} style="width:{{table.tdWidth[$index]}}px">
+														{{chr}}
+														<div class="resizeDivClass"><img width="4" height="100%"></div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="row in table.content" id={{$index}}>
+													<td class="context-menu-one" head="row">{{$index+1}}</td>
+													<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="dclick($event)" ng-repeat="val in row.value track by $index" id={{$index}} style="padding: 8px;color: #111111">
+														<div class="valFrame" ng-bind-html="val | replaceCode | trustHtml"></div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--================================= 样品de表格 =================================-->
+									<div ng-if="table.type=='sample'">
+										<table class="tableQRHeader" width="100%" style="display: {{table.header}};">
+											<tr>
+												<td>
+													<h3>{{table.title}}</h3>
+												</td>
+											</tr>
+										</table>
+										<table class="bg table-bordered" id='{{$index}}' width="100%" border="1" cellspacing="0" cellpadding="0">
+											<thead>
+												<tr>
+													<th head="corner" style="width: 24px;">@</th>
+													<th class="context-menu-one" head="col" ng-repeat="chr in table.colChr" id={{$index}} style="width:{{table.tdWidth[$index]}}px">
+														{{chr}}
+														<div class="resizeDivClass"><img width="4" height="100%"></div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="row in table.content" id={{$index}}>
+													<td class="context-menu-one" head="row">{{$index+1}}</td>
+													<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="dclick($event)" ng-repeat="val in row.value track by $index" id={{$index}} style="padding: 8px;color: #111111">
+														<div class="valFrame" ng-bind-html="val | replaceCode | trustHtml"></div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--================================= 标题行 =================================-->
+									<div class="label_frame" ng-if="table.type=='label'">
+										<label style="font-size: 24px;">{{table.title}}</label>
+									</div>
+									<!--图片行-->
+									<div class="img_frame" ng-if="table.type=='img'">
+										<img class="img-responsive" src="{{table.URL}}">
+									</div>
+									<!--============================ 文本框（以后的富文本框）============================-->
+									<div class="sample_frame" ng-if="table.type=='textarea'">
+										<textarea class="form-control"></textarea>
+									</div>
 								</div>
-								<div class="label_frame" ng-if="table.type=='label'">
-									<label style="font-size: 26px;">{{table.title}}</label>
-								</div>
-								<div class="img_frame" ng-if="table.type=='img'">
-									<img class="img-responsive" src="{{table.URL}}">
-								</div>
+								<p><br/></p>
 							</div>
-							<p><br/></p>
 						</div>
 						<!--右边栏-->
 						<div class="rightPanel col-md-3  hidden-sm hidden-xs">
-							<ul>
-								<li><label id="right_tableTitle">第 1 个表格</label><label id="cell_pos">B1</label><input type="text" class="form-control" ng-model="selectValue" /></li>
-								<li class="nav_line"></li>
-								<li>
-									<p class="drag">
-										<a class="btn btn-default form-control">标题</a>
-									</p>
-								</li>
-								<li>
-									<p class="drag">
-										<a class="btn btn-default form-control">表格</a>
-									</p>
-								</li>
-							</ul>
+							<div ui-sortable="draggableOptions" class="draggable-element-container" ng-repeat="draggableArray in draggables track by $index" ng-model="draggableArray">
+								<div class="widget" ng-repeat="item in draggableArray track by $index">
+									{{item.title}}
+								</div>
+							</div>
 						</div>
 					</div>
 					<!--报告配置的结束-->
@@ -322,6 +358,7 @@
 		</section>
 		<!-- Placed js at the end of the document so the pages load faster -->
 		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.nicescroll.js"></script>
 		<!--<script src="js/scripts.js"></script>-->
@@ -332,7 +369,6 @@
 		<script src="js/angular.min.js"></script>
 		<script src="js/reportJS/sortable.js"></script>
 		<script src="js/reportJS/smartReport.js"></script>
-		
 
 	</body>
 

@@ -398,7 +398,6 @@ report.controller('reportCtrl', function($scope) {
 		} //end of 上下拖拽
 
 	//右边栏的数据
-
 	var originalDraggables = [{
 		title: '标题',
 		type: "label",
@@ -449,6 +448,7 @@ report.controller('reportCtrl', function($scope) {
 				// restore the removed item
 				ui.item.sortable.sourceModel.push(ui.item.sortable.model);
 				loadDrag();
+				loadColSpan();
 			}
 		}
 	};
@@ -458,12 +458,81 @@ report.controller('reportCtrl', function($scope) {
 		$scope.tables.splice(index, 1);
 		setTimeout(function() {
 			loadDrag();
-		}, 500);
-		
+			loadColSpan();
+		}, 300);
+
 	}
 
-});
-//HTML化
+	//双击打开标题修改框
+	$scope.dbclickLabel = function(e) {
+		if($(e.target).is('label')) {
+			var labelVal = $(e.target).html();
+			$scope.labelVal = labelVal;
+			$scope.tableIndex = $(e.target).parent().attr("id");
+			//打开模态框
+			$('#textViewModal').modal('toggle');
+		}
+	}
+
+	//确定按钮
+	$scope.submitLabelValue = function() {
+			$scope.tables[$scope.tableIndex].title = $scope.labelVal;
+		}
+		//	清除按钮
+	$scope.cleanLabelValue = function() {
+		$scope.labelVal = "";
+	}
+
+	//双击打开选择图片
+	$scope.dbclickImg = function(e) {
+		var result = [{
+			title: '图片1',
+			img: 'http://img1.dzwww.com:8080/tupian/20160905/89/11391693537493694937.jpg'
+		}, {
+			title: '图片2',
+			img: 'http://dwz.cn/4lY1c3'
+		}, {
+			title: '图片3',
+			img: 'http://img3.imgtn.bdimg.com/it/u=530554461,336189006&fm=21&gp=0.jpg'
+		}, {
+			title: '图片4',
+			img: 'http://img3.cache.netease.com/photo/0279/2014-09-09/A5MMPT5O5S0C0279.jpg'
+		}, {
+			title: '图片5',
+			img: 'http://img3.imgtn.bdimg.com/it/u=530554461,336189006&fm=21&gp=0.jpg'
+		}, {
+			title: '图片6',
+			img: 'http://upload.cbg.cn/2016/1003/1475462213948.jpg'
+		}];
+		$scope.imgArr = result;
+		$scope.tableIndex = $(e.target).parent().attr("id");
+		$('#imgViewModal').modal('toggle');
+	}
+
+	//确认图片选择
+//	$scope.submitImgValue = function() {
+//
+//	}
+
+	//点选图片事件
+	$scope.selectImg = function(e) {
+		var src = "";
+		if($(e.target).is('a')){
+			var img = $(e.target).find('img');
+			src = img[0].src;
+		}else{
+			var img = $(e.target);
+			src = img.context.src;
+		}
+		$scope.tables[$scope.tableIndex].URL = src;
+		$('#imgViewModal').modal('hide');
+
+	}
+
+}); //end of controller
+
+
+//HTML化 过滤器
 report.filter('trustHtml', function($sce) {
 	return function(input) {
 		return $sce.trustAsHtml(input);
@@ -582,4 +651,32 @@ var SSheet = {
 		console.log(toString(tdwidth));
 		return tdwidth;
 	}
+}
+
+jQuery.fn.rowspan = function(colIdx) { //封装的一个JQuery小插件 
+	return this.each(function() {
+		var that;
+		$('tr', this).each(function(row) {
+			$('td:eq(' + colIdx + ')', this).filter(':visible').each(function(col) {
+				if(that != null && $(this).html() == $(that).html()) {
+					rowspan = $(that).attr("rowSpan");
+					if(rowspan == undefined) {
+						$(that).attr("rowSpan", 1);
+						rowspan = $(that).attr("rowSpan");
+					}
+					rowspan = Number(rowspan) + 1;
+					$(that).attr("rowSpan", rowspan);
+					$(this).hide();
+				} else {
+					that = this;
+				}
+			});
+		});
+	});
+}
+
+var loadColSpan = function() {
+	$(".table-sample").rowspan(0); //传入的参数是对应的列数从0开始，哪一列有相同的内容就输入对应的列数值 
+	$(".table-sample").rowspan(1);
+	$(".table-sample").rowspan(2);
 }

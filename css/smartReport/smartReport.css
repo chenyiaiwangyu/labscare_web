@@ -132,12 +132,16 @@ body {
 	box-sizing: content-box!important;
 }
 
-.label_frame{
-	
+.label_frame label{
+	cursor: cell;
 }
 
 .img_frame{
-	padding:20px;
+	padding:15px;
+}
+
+.img_frame img{
+	cursor: cell;
 }
 
 
@@ -162,6 +166,10 @@ body {
 	margin-left: 8px;
 }
 
+.rightPanel .comp_list{
+	height: 500px;
+}
+
 .widget{
 	width: 100%;
 	padding: 5px 10px;
@@ -175,5 +183,46 @@ body {
 	cursor: move;
 }
 
+.rightPanel .btn-save{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#imgViewModal .img-rows{
+	margin: auto 0;
+	padding:0;
+}
+
+#imgViewModal .img-rows li{
+	margin-right: 0;
+}
+
+#imgViewModal .img-rows li:hover{
+	background-color: transparent;
+    	text-decoration: none;
+}
+
+#imgViewModal .img-rows li a{
+	height: 190px;
+	float: left;
+	padding: 0;
+	overflow: hidden;
+	display: box; 
+	display: -webkit-box; 
+	display: -moz-box; 
+	-webkit-box-pack:center; 
+	-moz-box-pack:center; 
+	-webkit-box-align:center; 
+	-moz-box-align:center;
+	cursor: pointer;
+}
+
+#imgViewModal .img-rows:after {
+  display: table;
+  content: "";
+}
+#imgViewModal .img-rows:after {
+  clear: both;
+}
 
 

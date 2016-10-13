@@ -383,20 +383,6 @@ report.controller('reportCtrl', function($scope) {
 			};
 		} //end of 表格拖拽
 
-	//拖拽换位排序
-	$scope.sortableOptions = {
-			axis: 'y',
-			placeholder: "item-list",
-			connectWith: ".sort_list",
-			handle: '> .myHandle',
-			update: function(e, ui) {
-				if(ui.item.sortable.model == "can't be moved") {
-					ui.item.sortable.cancel();
-				}
-				loadDrag();
-			}
-		} //end of 上下拖拽
-
 	//右边栏的数据
 	var originalDraggables = [{
 		title: '标题',
@@ -430,9 +416,10 @@ report.controller('reportCtrl', function($scope) {
 	for(var i = 0; i < samples.length; i++) {
 		originalDraggables.push(samples[i]);
 	}
-	$scope.draggables = originalDraggables.map(function(x) {
-		return [x];
-	});
+	//	$scope.draggables = originalDraggables.map(function(x) {
+	//		return [x];
+	//	});
+	$scope.draggableArray = JSON.parse(JSON.stringify(originalDraggables));
 
 	$scope.changeStatus = function(s) {
 		$scope.modalStatus = s;
@@ -441,17 +428,37 @@ report.controller('reportCtrl', function($scope) {
 		connectWith: ".sort_list",
 		stop: function(e, ui) {
 			// if the element is removed from the first container
-			if(ui.item.sortable.source.hasClass('draggable-element-container') &&
+			//			if(ui.item.sortable.source.hasClass('draggable-element-container') &&
+			//				ui.item.sortable.droptarget &&
+			//				ui.item.sortable.droptarget != ui.item.sortable.source &&
+			//				ui.item.sortable.droptarget.hasClass('sort_list')) {
+			// restore the removed item
+			//				ui.item.sortable.sourceModel.push(ui.item.sortable.model);
+			if($(e.target).hasClass('draggable-element-container') &&
 				ui.item.sortable.droptarget &&
-				ui.item.sortable.droptarget != ui.item.sortable.source &&
-				ui.item.sortable.droptarget.hasClass('sort_list')) {
-				// restore the removed item
-				ui.item.sortable.sourceModel.push(ui.item.sortable.model);
+				e.target != ui.item.sortable.droptarget[0]) {
+					
+				$scope.draggableArray = JSON.parse(JSON.stringify(originalDraggables));
 				loadDrag();
 				loadColSpan();
 			}
+
 		}
 	};
+
+	//拖拽换位排序
+	$scope.sortableOptions = {
+			axis: 'y',
+			placeholder: "item-list",
+			connectWith: ".sort_list",
+			handle: '> .myHandle',
+			update: function(e, ui) {
+				if(ui.item.sortable.model == "can't be moved") {
+					ui.item.sortable.cancel();
+				}
+				loadDrag();
+			}
+		} //end of 上下拖拽
 
 	//	删除一个模块组件
 	$scope.deleteComp = function(index) {
@@ -510,27 +517,28 @@ report.controller('reportCtrl', function($scope) {
 	}
 
 	//确认图片选择
-//	$scope.submitImgValue = function() {
-//
-//	}
+	//	$scope.submitImgValue = function() {
+	//
+	//	}
 
 	//点选图片事件
 	$scope.selectImg = function(e) {
 		var src = "";
-		if($(e.target).is('a')){
+		if($(e.target).is('a')) {
 			var img = $(e.target).find('img');
 			src = img[0].src;
-		}else{
+		} else {
 			var img = $(e.target);
 			src = img.context.src;
 		}
 		$scope.tables[$scope.tableIndex].URL = src;
 		$('#imgViewModal').modal('hide');
 
+		console.log($scope.tables);
+
 	}
 
 }); //end of controller
-
 
 //HTML化 过滤器
 report.filter('trustHtml', function($sce) {

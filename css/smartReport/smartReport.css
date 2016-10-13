@@ -31,9 +31,7 @@ body {
 
 .tableQRHeader {
 	width: 100%;
-	border-top: 2px solid #DDDDDD;
-	border-left: 2px solid #DDDDDD;
-	border-right: 2px solid #DDDDDD;
+	border-bottom: none;
 }
 
 .tableQRHeader h3 {
@@ -147,7 +145,7 @@ body {
 
 /*右边栏 ================================================>>右边栏<<================== */
 .rightPanel {
-	margin: 10px 10px 10px 25px;
+	margin: 20px 10px 10px 25px;
 	padding-top: 20px;
 	border: 1px solid #E6E6E6;
 	min-height: 600px;

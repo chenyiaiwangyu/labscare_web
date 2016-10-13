@@ -118,7 +118,7 @@
 									<a class="myDelete" ng-click="deleteComp($index)"><i class="fa fa-trash-o"></i></a>
 									<p><br/></p>
 									<div ng-if="table.type=='table'">
-										<table class="tableQRHeader" width="100%" style="display: {{table.header}};">
+										<table class="tableQRHeader table-bordered" width="100%" style="display: {{table.header}};" border="1">
 											<tr>
 												<td style="width: 80%;">
 													<h3>{{table.title}}</h3>
@@ -150,7 +150,7 @@
 									</div>
 									<!--================================= 样品de表格 =================================-->
 									<div ng-if="table.type=='sample'">
-										<table class="tableQRHeader" width="100%" style="display: {{table.header}};">
+										<table class="tableQRHeader table-bordered" width="100%" style="display: {{table.header}};" border="1">
 											<tr>
 												<td>
 													<h3>{{table.title}}</h3>
@@ -196,7 +196,7 @@
 						<!--右边栏-->
 						<div class="rightPanel col-md-3  hidden-sm hidden-xs">
 							<div class="comp_list">
-								<div ui-sortable="draggableOptions" class="draggable-element-container" ng-repeat="draggableArray in draggables track by $index" ng-model="draggableArray">
+								<div ui-sortable="draggableOptions" class="draggable-element-container" ng-model="draggableArray">
 									<div class="widget" ng-repeat="item in draggableArray track by $index">
 										{{item.title}}
 									</div>
@@ -421,7 +421,7 @@
 		<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.nicescroll.js"></script>
-		<!--<script src="js/scripts.js"></script>-->
+		<script src="js/scripts.js"></script>
 		<!--报告 JS-->
 		<script src="https://cdn.bootcss.com/jquery-contextmenu/2.2.4/jquery.contextMenu.min.js" type="text/javascript"></script>
 		<!--表格插件-->
@@ -429,7 +429,7 @@
 		<script src="js/angular.min.js"></script>
 		<script src="js/reportJS/sortable.js"></script>
 		<script src="js/reportJS/smartReport.js"></script>
-
+	
 	</body>
 
 </html>

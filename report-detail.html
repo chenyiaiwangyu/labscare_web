@@ -129,7 +129,7 @@
 											</tr>
 										</table>
 										<table class="bg table-bordered" id='{{$index}}' width="100%" border="1" cellspacing="0" cellpadding="0">
-											<thead>
+											<thead ng-hide="printStatus">
 												<tr>
 													<th head="corner" style="width: 24px;">@</th>
 													<th class="context-menu-one" head="col" ng-repeat="chr in table.colChr" id={{$index}} style="width:{{table.tdWidth[$index]}}px">
@@ -140,7 +140,7 @@
 											</thead>
 											<tbody>
 												<tr ng-repeat="row in table.content" id={{$index}}>
-													<td class="context-menu-one" head="row">{{$index+1}}</td>
+													<td class="context-menu-one" head="row" ng-hide="printStatus">{{$index+1}}</td>
 													<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="dclick($event)" ng-repeat="val in row.value track by $index" id={{$index}} style="padding: 8px;color: #111111">
 														<div class="valFrame" ng-bind-html="val | replaceCode | trustHtml"></div>
 													</td>
@@ -158,7 +158,7 @@
 											</tr>
 										</table>
 										<table class="bg table-bordered table-sample" id='{{$index}}' width="100%" border="1" cellspacing="0" cellpadding="0">
-											<thead>
+											<thead ng-hide="printStatus">
 												<tr>
 													<th head="corner" style="width: 24px;">@</th>
 													<th class="context-menu-one" head="col" ng-repeat="chr in table.colChr" id={{$index}} style="width:{{table.tdWidth[$index]}}px">
@@ -169,8 +169,8 @@
 											</thead>
 											<tbody>
 												<tr ng-repeat="row in table.content" id={{$index}}>
-													<td class="context-menu-one" head="row">{{$index+1}}</td>
-													<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="dclick($event)" ng-repeat="val in row.value track by $index" id={{$index}} style="padding: 8px;color: #111111">
+													<td class="context-menu-one" head="row" ng-hide="printStatus">{{$index+1}}</td>
+													<td class="context-menu-one" ng-mousedown="mousedown($event)" ng-dblclick="s_dbclick($event)" ng-repeat="val in row.value track by $index" id={{$index}} style="padding: 8px;color: #111111">
 														<div class="valFrame" ng-bind-html="val | replaceCode | trustHtml"></div>
 													</td>
 												</tr>
@@ -203,6 +203,7 @@
 								</div>
 							</div>
 							<div>
+								<a class="btn btn-info form-control btn-preview" ng-click="saveAction()">{{preview}}</a>
 								<a class="btn btn-success form-control btn-save">保存报告</a>
 							</div>
 						</div>
@@ -403,6 +404,33 @@
 										<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
 										<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="submitImgValue()">确认</button>
 									</div>-->
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!--end of modal-->
+					<!-- ==================================样品组的Modal================================== -->
+					<div class="modal fade" id="sampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myModalLabel">值：<span>{{selectValue}}</span></h4>
+								</div>
+								<div class="modal-body">
+									<div class="input-group">
+										<input type="text" class="form-control" ng-model="selectValue"></input>
+										<span class="input-group-btn">
+                        						<button class="btn btn-default" type="button" ng-click="cleanValue()"><span class="fa fa-times-circle"></span></button>
+										</span>
+									</div>
+									<p class="help-block" style="font-size: 12px;">如果需要换行，请使用英文半角的";"</p>
+									
+									<div align="right">
+										<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+										<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="submitValue($event)">确认</button>
+									</div>
 								</div>
 
 							</div>

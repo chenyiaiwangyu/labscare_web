@@ -17,6 +17,19 @@ report.controller('reportCtrl', function($scope) {
 		var sample = samples[i];
 		sample.colChr = colArr[i];
 	}
+	//数据初始化
+	$scope.printStatus=false;
+	$scope.preview = "打印预览";
+	
+	$scope.saveAction = function(){
+		$scope.printStatus=!$scope.printStatus;
+		if($scope.printStatus){
+			$scope.preview = "取消预览";
+		}else{
+			$scope.preview = "打印预览";
+		}
+	}
+	
 
 	//鼠标单击事件  console.log("cool"); ------------------------------>>鼠标对表格单击事件<<------------------
 	$scope.mousedown = function(e) {
@@ -85,6 +98,31 @@ report.controller('reportCtrl', function($scope) {
 	$scope.cleanValue = function() {
 		$scope.selectValue = "";
 	}
+	
+	//样品表格的双击
+	$scope.s_dbclick = function(e){
+		//赋值
+		var div;
+		var selectVal = "";
+		if($(e.target).is('div')) {
+			div = $(e.target);
+			selectVal = div.html();
+		} else {
+			var td = $(e.target);
+			div = td.find('div');
+			selectVal = div.html();
+		}
+		$scope.selectValue = selectVal.replace(/\<br>/g, ";");
+
+		$scope.tableIndex = div.parent().parent().parent().parent().attr("id");
+		$scope.rowIndex = div.parent().parent().attr("id");
+		$scope.colIndex = div.parent().attr("id");
+		$scope.tableId = $scope.tables[$scope.tableIndex].table_id;
+
+		//打开模态框
+		$('#sampleModal').modal('toggle');
+	}
+	
 
 	//复选框
 	$scope.clickedCheckbox = function(e) {
@@ -349,7 +387,6 @@ report.controller('reportCtrl', function($scope) {
 						return;
 					}
 					var t = a.clientX - lastX;
-					//			out.innerHTML = t;
 					if(t > 0) { //right 
 						if(parseInt(o.parentNode.parentNode.cells[o.parentNode.cellIndex + 1].style.width) - t < 10)
 							return;
@@ -413,12 +450,11 @@ report.controller('reportCtrl', function($scope) {
 		"tdWidth": [],
 		"content": []
 	}];
+	//从网络获取的样品框加入对象
 	for(var i = 0; i < samples.length; i++) {
 		originalDraggables.push(samples[i]);
 	}
-	//	$scope.draggables = originalDraggables.map(function(x) {
-	//		return [x];
-	//	});
+	
 	$scope.draggableArray = JSON.parse(JSON.stringify(originalDraggables));
 
 	$scope.changeStatus = function(s) {
@@ -427,22 +463,13 @@ report.controller('reportCtrl', function($scope) {
 	$scope.draggableOptions = {
 		connectWith: ".sort_list",
 		stop: function(e, ui) {
-			// if the element is removed from the first container
-			//			if(ui.item.sortable.source.hasClass('draggable-element-container') &&
-			//				ui.item.sortable.droptarget &&
-			//				ui.item.sortable.droptarget != ui.item.sortable.source &&
-			//				ui.item.sortable.droptarget.hasClass('sort_list')) {
-			// restore the removed item
-			//				ui.item.sortable.sourceModel.push(ui.item.sortable.model);
 			if($(e.target).hasClass('draggable-element-container') &&
 				ui.item.sortable.droptarget &&
 				e.target != ui.item.sortable.droptarget[0]) {
-					
 				$scope.draggableArray = JSON.parse(JSON.stringify(originalDraggables));
 				loadDrag();
 				loadColSpan();
 			}
-
 		}
 	};
 
@@ -533,9 +560,6 @@ report.controller('reportCtrl', function($scope) {
 		}
 		$scope.tables[$scope.tableIndex].URL = src;
 		$('#imgViewModal').modal('hide');
-
-		console.log($scope.tables);
-
 	}
 
 }); //end of controller

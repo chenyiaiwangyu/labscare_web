@@ -148,7 +148,7 @@ body {
 	margin: 20px 10px 10px 25px;
 	padding-top: 20px;
 	border: 1px solid #E6E6E6;
-	min-height: 600px;
+	min-height: 400px;
 	background-color: #FFFFFF;
 	position: fixed;
 	right: 20px;
@@ -165,7 +165,7 @@ body {
 }
 
 .rightPanel .comp_list{
-	height: 500px;
+	height: 400px;
 }
 
 .widget{
@@ -184,6 +184,10 @@ body {
 .rightPanel .btn-save{
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+
+.rightPanel .btn-preview{
+	
 }
 
 #imgViewModal .img-rows{

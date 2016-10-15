@@ -8,7 +8,8 @@ body {
 	border: 1px solid #E6E6E6;
 	min-height: 800px;
 	background-color: #FFFFFF;
-	width:794px; /*96dpi 计算210mm的像素 794*/
+	width: 794px;
+	/*96dpi 计算210mm的像素 794px 297mm:    */
 }
 
 .item-list {
@@ -16,14 +17,14 @@ body {
 	padding: 0 8px 8px 8px;
 	border: 1px dashed #E6E6E6;
 	border-radius: 5px;
-	
 }
 
-.item-list .myHandle{
+.item-list .myHandle {
 	float: left;
 	cursor: move;
 }
-.item-list .myDelete{
+
+.item-list .myDelete {
 	float: right;
 	color: red;
 	cursor: pointer;
@@ -42,7 +43,6 @@ body {
 	width: 150px;
 	height: 150px;
 }
-
 
 .smartReport td {
 	cursor: cell;
@@ -98,7 +98,7 @@ body {
 	height: 100%;
 }
 
-.sort_list{
+.sort_list {
 	/*margin: 8px;*/
 	padding: 8px;
 }
@@ -121,6 +121,35 @@ body {
 	position: relative;
 }
 
+@media print {
+	.bg th {
+		display: none
+	}
+	.bg td[head] {
+		display: none
+	}
+	.item-list {
+		border: 0px;
+	}
+	.myHandle {
+		display: none;
+	}
+	.myDelete {
+		display: none;
+	}
+	.cover_logo img {
+		max-width: 180px!important;
+		max-height: 120px!important;
+	}
+	ul,
+	img {
+		page-break-inside: avoid;
+	}
+	.img_frame img {
+		max-width: 90%!important;
+	}
+}
+
 .bg th {
 	font-weight: bold;
 	color: #000000;
@@ -130,20 +159,136 @@ body {
 	box-sizing: content-box!important;
 }
 
-.label_frame label{
+.label_frame label {
 	cursor: cell;
 }
 
-.img_frame{
-	padding:15px;
+.img_frame {
+	padding: 15px;
 }
 
-.img_frame img{
+.img_frame img {
 	cursor: cell;
 }
+
+
+/*首页样式*/
+
+.cover_page {
+	height: 1123px;
+}
+
+.clear:after {
+	display: table;
+	content: '';
+	clear: both;
+}
+
+.cover_logo {
+	height: 100px;
+	float: left;
+	padding: 0;
+	overflow: hidden;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	cursor: pointer;
+}
+
+.cover_title,
+.cover_subtitle,
+.cover_info {
+	cursor: cell;
+}
+
+.cover_pageNum {
+	cursor: default;
+}
+
+.cover_page h4 {
+	color: #000000;
+	font-weight: bold;
+}
+
+.cover_logo img {
+	max-width: 180px;
+	max-height: 120px;
+	cursor: pointer;
+}
+
+.del_btn {
+	position: absolute;
+	color: red;
+	top: 0px;
+	left: 155px;
+}
+
+.del_btn:hover {
+	color: #FF5434;
+}
+
+.cover_support p {
+	color: #000000;
+	font-size: 18px;
+}
+
+.cover_info {
+	margin-top: 200px;
+	padding-left: 70px;
+}
+
+.cover_info p {
+	color: #111111;
+	font-size: 18px;
+}
+
+#uploadModal .img-rows {
+	margin: auto 0;
+	padding: 0;
+}
+
+#uploadModal .img-rows li {
+	margin-right: 0;
+}
+
+#uploadModal .img-rows li a {
+	height: 100px;
+	float: left;
+	padding: 0;
+	overflow: hidden;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	cursor: pointer;
+}
+
+#uploadModal .img-rows:after {
+	display: table;
+	content: "";
+}
+
+#uploadModal .img-rows:after {
+	clear: both;
+}
+/*结束首页样式*/
+/*目录样式*/
+.table-catelog th,.table-catelog td{
+	text-align: center;
+}
+
+
 
 
 /*右边栏 ================================================>>右边栏<<================== */
+
 .rightPanel {
 	margin: 20px 10px 10px 25px;
 	padding-top: 20px;
@@ -164,11 +309,12 @@ body {
 	margin-left: 8px;
 }
 
-.rightPanel .comp_list{
+.rightPanel .comp_list {
 	height: 400px;
+	overflow-y: auto;
 }
 
-.widget{
+.widget {
 	width: 100%;
 	padding: 5px 10px;
 	margin: 8px 0;
@@ -181,50 +327,49 @@ body {
 	cursor: move;
 }
 
-.rightPanel .btn-save{
+.rightPanel .btn-save {
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
 
-.rightPanel .btn-preview{
-	
+.rightPanel .btn-preview {
+	margin-top: 15px;
 }
 
-#imgViewModal .img-rows{
+#imgViewModal .img-rows {
 	margin: auto 0;
-	padding:0;
+	padding: 0;
 }
 
-#imgViewModal .img-rows li{
+#imgViewModal .img-rows li {
 	margin-right: 0;
 }
 
-#imgViewModal .img-rows li:hover{
+#imgViewModal .img-rows li:hover {
 	background-color: transparent;
-    	text-decoration: none;
+	text-decoration: none;
 }
 
-#imgViewModal .img-rows li a{
+#imgViewModal .img-rows li a {
 	height: 190px;
 	float: left;
 	padding: 0;
 	overflow: hidden;
-	display: box; 
-	display: -webkit-box; 
-	display: -moz-box; 
-	-webkit-box-pack:center; 
-	-moz-box-pack:center; 
-	-webkit-box-align:center; 
-	-moz-box-align:center;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
 	cursor: pointer;
 }
 
 #imgViewModal .img-rows:after {
-  display: table;
-  content: "";
+	display: table;
+	content: "";
 }
+
 #imgViewModal .img-rows:after {
-  clear: both;
+	clear: both;
 }
-
-

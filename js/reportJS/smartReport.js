@@ -9,6 +9,7 @@ report.controller('reportCtrl', function($scope) {
 		var table = tables[i];
 		table.colChr = colArr[i];
 	}
+
 	$scope.tables = tables;
 	//样品初始化
 	var samples = angular.fromJson(sampleStr);
@@ -17,19 +18,22 @@ report.controller('reportCtrl', function($scope) {
 		var sample = samples[i];
 		sample.colChr = colArr[i];
 	}
+	//	$scope.tables.insert(0,samples[0]);
 	//数据初始化
-	$scope.printStatus=false;
+	$scope.printStatus = false;
 	$scope.preview = "打印预览";
-	
-	$scope.saveAction = function(){
-		$scope.printStatus=!$scope.printStatus;
-		if($scope.printStatus){
+	setTimeout(function() {
+		loadColSpan();
+	}, 300);
+
+	$scope.saveAction = function() {
+		$scope.printStatus = !$scope.printStatus;
+		if($scope.printStatus) {
 			$scope.preview = "取消预览";
-		}else{
+		} else {
 			$scope.preview = "打印预览";
 		}
 	}
-	
 
 	//鼠标单击事件  console.log("cool"); ------------------------------>>鼠标对表格单击事件<<------------------
 	$scope.mousedown = function(e) {
@@ -98,9 +102,9 @@ report.controller('reportCtrl', function($scope) {
 	$scope.cleanValue = function() {
 		$scope.selectValue = "";
 	}
-	
+
 	//样品表格的双击
-	$scope.s_dbclick = function(e){
+	$scope.s_dbclick = function(e) {
 		//赋值
 		var div;
 		var selectVal = "";
@@ -122,7 +126,6 @@ report.controller('reportCtrl', function($scope) {
 		//打开模态框
 		$('#sampleModal').modal('toggle');
 	}
-	
 
 	//复选框
 	$scope.clickedCheckbox = function(e) {
@@ -428,7 +431,8 @@ report.controller('reportCtrl', function($scope) {
 		content: []
 	}, {
 		title: '文本框',
-		type: 'textarea'
+		type: 'textarea',
+		content: '这是一个文本框'
 	}, {
 		title: "表格",
 		qrImage: "",
@@ -454,7 +458,7 @@ report.controller('reportCtrl', function($scope) {
 	for(var i = 0; i < samples.length; i++) {
 		originalDraggables.push(samples[i]);
 	}
-	
+
 	$scope.draggableArray = JSON.parse(JSON.stringify(originalDraggables));
 
 	$scope.changeStatus = function(s) {
@@ -489,11 +493,15 @@ report.controller('reportCtrl', function($scope) {
 
 	//	删除一个模块组件
 	$scope.deleteComp = function(index) {
-		$scope.tables.splice(index, 1);
-		setTimeout(function() {
-			loadDrag();
-			loadColSpan();
-		}, 300);
+		if($scope.tables.length>1) {
+			$scope.tables.splice(index, 1);
+			setTimeout(function() {
+				loadDrag();
+				loadColSpan();
+			}, 300);
+		}else{
+			alert('请给您的报告留下最后一张纸吧~');
+		}
 
 	}
 
@@ -562,7 +570,98 @@ report.controller('reportCtrl', function($scope) {
 		$('#imgViewModal').modal('hide');
 	}
 
-}); //end of controller
+	$scope.openUpdateImage = function(e) {
+		var result = [{
+			title: '图片1',
+			img: 'http://img1.dzwww.com:8080/tupian/20160905/89/11391693537493694937.jpg'
+		}, {
+			title: '图片2',
+			img: 'http://dwz.cn/4lY1c3'
+		}, {
+			title: '图片3',
+			img: 'http://img3.imgtn.bdimg.com/it/u=530554461,336189006&fm=21&gp=0.jpg'
+		}, {
+			title: '图片4',
+			img: 'http://img3.cache.netease.com/photo/0279/2014-09-09/A5MMPT5O5S0C0279.jpg'
+		}, {
+			title: '图片5',
+			img: 'http://img3.imgtn.bdimg.com/it/u=530554461,336189006&fm=21&gp=0.jpg'
+		}, {
+			title: '图片6',
+			img: 'http://upload.cbg.cn/2016/1003/1475462213948.jpg'
+		}];
+		$scope.logoArr = result;
+		//判断是否点击新增图片层
+		if($(e.target).attr('data-id') == 'new') {
+			if($(e.target).is('div')) {
+				$scope.tableIndex = $(e.target).parent().parent().attr("id");
+			} else {
+				$scope.tableIndex = $(e.target).parent().parent().parent().attr("id");
+			}
+		} else {
+			$scope.tableIndex = $(e.target).parent().parent().parent().parent().attr("id");
+		}
+		console.log($scope.tableIndex);
+		$scope.imgIndex = $(e.target).parent().attr('data-id');
+		$('#uploadModal').modal('toggle');
+	}
+
+	//选择logo
+	$scope.selectLogo = function(e) {
+		var src = "";
+		if($(e.target).is('a')) {
+			var img = $(e.target).find('img');
+			src = img[0].src;
+		} else {
+			var img = $(e.target);
+			src = img.context.src;
+		}
+		if($scope.imgIndex == 'new') {
+			$scope.tables[$scope.tableIndex].logos.push(src);
+		} else {
+			$scope.tables[$scope.tableIndex].logos.changeItem($scope.imgIndex, src);
+		}
+		$('#uploadModal').modal('hide');
+	}
+
+	//确定上传LOGO图片
+	$scope.urlSubmit = function(e) {
+
+		//上传图片返回的url写入src就行，因为这个是区分是新增图片还是更换图片的
+		if($scope.imgIndex == 'new') {
+			$scope.tables[$scope.tableIndex].logos.push(src);
+		} else {
+			$scope.tables[$scope.tableIndex].logos.changeItem($scope.imgIndex, src);
+		}
+	}
+
+	//删除LOGO图片
+	$scope.delLogo = function(i, t) {
+		$scope.tables[t].logos.splice(i, 1);
+	}
+
+	//首页信息输入框
+	$scope.coverPageModal = function(i) {
+			$scope.cover_title = $scope.tables[i].title;
+			$scope.cover_subtitle = $scope.tables[i].subtitle;
+			$scope.cover_companyName = $scope.tables[i].companyName;
+			$scope.cover_addr = $scope.tables[i].addr;
+			$scope.cover_date = $scope.tables[i].date;
+			$scope.tableIndex = i;
+			$('#coverPageModal').modal('toggle');
+		}
+		//首页信息输入框确认按钮
+	$scope.submitCover = function() {
+		$scope.tables[$scope.tableIndex].title = $scope.cover_title;
+		$scope.tables[$scope.tableIndex].subtitle = $scope.cover_subtitle;
+		$scope.tables[$scope.tableIndex].companyName = $scope.cover_companyName;
+		$scope.tables[$scope.tableIndex].addr = $scope.cover_addr;
+		$scope.tables[$scope.tableIndex].date = $scope.cover_date;
+		$('#coverPageModal').modal('hide');
+	}
+
+});
+// ---->> end of controller AngularJS 结束
 
 //HTML化 过滤器
 report.filter('trustHtml', function($sce) {

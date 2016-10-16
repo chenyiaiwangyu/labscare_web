@@ -113,7 +113,7 @@
 						<div class="smartReport">
 							<div class="sort_list" ui-sortable="sortableOptions" ng-model="tables">
 								<div class="item-list" ng-repeat="table in tables track by $index">
-									<div class="myHandle" ><i class="fa fa-bars"></i></div>
+									<div class="myHandle"><i class="fa fa-bars"></i></div>
 									<a class="myDelete" ng-click="deleteComp($index)" ng-hide="{{$index==0}}"><i class="fa fa-trash-o"></i></a>
 									<p><br/></p>
 									<!--================================= 封面页 =================================-->
@@ -271,8 +271,8 @@
 										<img class="img-responsive" src="{{table.URL}}" ng-dblclick="dbclickImg($event)">
 									</div>
 									<!--============================ 文本框（以后的富文本框）============================-->
-									<div class="sample_frame" ng-if="table.type=='textarea'" id='{{$index}}'>
-										<textarea class="form-control">{{table.content}}</textarea>
+									<div class="text_frame" ng-if="table.type=='textarea'" id='{{$index}}'>
+										<span ng-dblclick="dbclickText($event)">{{table.content}}</span>
 									</div>
 								</div>
 								<p><br/></p>
@@ -607,6 +607,29 @@
 										<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="submitCover($event)">确认</button>
 									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+					<!--end of modal-->
+					<!-- ==================================富文本框的Modal================================== -->
+					<div class="modal fade" id="textareaModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title">文本框</h4>
+								</div>
+								<div class="modal-body">
+									<textarea class="form-control" rows="5" ng-model="textareaVal"></textarea>
+									<p></p>
+									<div class="text-btn-group">
+										<button type="button" class="btn btn-default pull-left" ng-click="emptyTextarea()">清空</button>
+										<button type="button" class="btn btn-primary pull-right" data-dismiss="modal" ng-click="submitTextValue()">确认</button>
+										<button type="button" class="btn btn-default pull-right" data-dismiss="modal">取消</button>
+									</div>
+									<div class="clear"></div>
+								</div>
+
 							</div>
 						</div>
 					</div>

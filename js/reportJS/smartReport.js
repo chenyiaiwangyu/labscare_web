@@ -551,11 +551,6 @@ report.controller('reportCtrl', function($scope) {
 		$('#imgViewModal').modal('toggle');
 	}
 
-	//确认图片选择
-	//	$scope.submitImgValue = function() {
-	//
-	//	}
-
 	//点选图片事件
 	$scope.selectImg = function(e) {
 		var src = "";
@@ -658,6 +653,20 @@ report.controller('reportCtrl', function($scope) {
 		$scope.tables[$scope.tableIndex].addr = $scope.cover_addr;
 		$scope.tables[$scope.tableIndex].date = $scope.cover_date;
 		$('#coverPageModal').modal('hide');
+	}
+	
+	//打开文本框
+	$scope.dbclickText = function(e){
+		$scope.tableIndex = $(e.target).parent().attr('id');
+		$scope.textareaVal = $scope.tables[$scope.tableIndex].content;
+		$('#textareaModal').modal('toggle');
+	}
+	
+	$scope.submitTextValue = function(){
+		 $scope.tables[$scope.tableIndex].content = $scope.textareaVal;
+	}
+	$scope.emptyTextarea = function(){
+		$scope.textareaVal = "";
 	}
 
 });

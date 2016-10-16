@@ -284,6 +284,15 @@ body {
 	text-align: center;
 }
 
+/*文本框*/
+.text_frame span{
+	font-size: 14px;
+	cursor: cell;
+}
+
+.text-btn-group button{
+	margin: 0 4px;
+}
 
 
 

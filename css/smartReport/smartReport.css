@@ -142,7 +142,8 @@ body {
 		max-height: 120px!important;
 	}
 	ul,
-	img {
+	img,
+	table {
 		page-break-inside: avoid;
 	}
 	.img_frame img {

@@ -114,7 +114,7 @@
 							<div class="sort_list" ui-sortable="sortableOptions" ng-model="tables">
 								<div class="item-list" ng-repeat="table in tables track by $index">
 									<div class="myHandle"><i class="fa fa-bars"></i></div>
-									<a class="myDelete" ng-click="deleteComp($index)" ng-hide="{{$index==0}}"><i class="fa fa-trash-o"></i></a>
+									<a class="myDelete" ng-click="deleteComp($index)"><i class="fa fa-trash-o"></i></a>
 									<p><br/></p>
 									<!--================================= 封面页 =================================-->
 									<div ng-if="table.type=='cover'" id={{$index}}>

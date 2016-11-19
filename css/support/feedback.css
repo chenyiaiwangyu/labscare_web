@@ -1,0 +1,101 @@
+body {
+	background-color: rgb(245, 245, 245);
+}
+
+.title {
+	font-size: 12px;
+	margin-top: 15px;
+	padding-left: 15px;
+	color: #B2B2B2;
+}
+
+.textFrame {
+	margin-top: 8px;
+	border-top: 1px solid rgb(230,230,230);
+	border-bottom: 1px solid rgb(230,230,230);
+	background-color: white;
+}
+
+input,
+button,
+select,
+textarea {
+	outline: none;
+}
+
+.fb_textarea {
+	padding-top: 4px;
+	width: 100%;
+	height: 110px;
+	border: none;
+	resize: none;
+}
+#max_msg {
+	color: #B2B2B2;
+}
+
+.imageFrame{
+	margin-top: 20px;
+	padding-top: 4px;
+	border-top: 1px solid rgb(230,230,230);
+	border-bottom: 1px solid rgb(230,230,230);
+	background-color: white;
+}
+
+#imageCount{
+	color: #B2B2B2;
+}
+
+.image-group{
+	margin:15px 0;
+	padding: 0;
+}
+
+.image-group li{
+	padding: 4px;
+	
+}
+/*针对图片框高度做屏幕自适应调整*/
+@media only screen and (min-width: 0px) and (max-width: 375px) {
+	.image-group li a{
+		height: 80px;
+	}
+}
+
+@media only screen and (min-width: 376px) and (max-width: 414px) {
+	.image-group li a{
+		height: 100px;
+	}
+}
+
+@media only screen and (min-width: 415px){
+	.image-group li a{
+		height: 185px;
+	}
+}
+
+.image-group li a{
+	padding: 0;
+	float: left;
+	overflow: hidden;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+}
+
+#addBtn .btn{
+	padding: 0;
+}
+
+.btn-frame{
+	margin-top: 20px;
+}
+.btn-frame a{
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+}

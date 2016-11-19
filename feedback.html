@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+			<meta name="keywords" content="labscare, labelmaster, 反馈, feedback, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+			<meta name="description" content="">
+			<meta name="author" content="ITMeow">
+			<link rel="shortcut icon" href="images/head-icon.png" type="image/png">
+			<title>意见反馈</title>
+
+			<!--common-->
+
+			<link href="css/style.css" rel="stylesheet">
+			<link href="css/style-responsive.css" rel="stylesheet">
+			<link href="css/support/feedback.css" rel="stylesheet" />
+			<link rel="stylesheet" href="css/support/swipebox.css">
+
+		</head>
+	</head>
+
+	<body ng-app="feedback">
+		<section ng-controller="feedbackCtrl">
+			<textarea id="companyId" style="display:none">4063b8fb21f028a59a5383a5f456c85d</textarea>
+			<textarea id="userId" style="display:none">18878860776</textarea>
+
+			<div class="container-fluid">
+				<div class="row">
+					<form id="form" role="form" action="in.php" method="get">
+						<div class="title">问题和意见</div>
+						<div class="textFrame col-xs-12">
+							<textarea class="fb_textarea" name="content" placeholder="请简要描述你的问题和意见" onkeydown="checkMaxInput(this,200)" onkeyup=" checkMaxInput(this,200) " onfocus="checkMaxInput(this,200) " onblur="checkMaxInput(this,200); "></textarea>
+							<span id="max_msg" class="Max_msg pull-right">0/200</span>
+						</div>
+						<div class="imageFrame col-xs-12" ng-model="imageArr">
+							<span>图片（选填，提供问题截图）</span> <span id="imageCount" class="pull-right">{{imageArr.length}}/4</span>
+							<br />
+							<ul class="image-group clearfix">
+								<li class="col-xs-3 col-md-3" ng-repeat="url in imageArr track by $index">
+									<a href="{{url}}" class="swipebox">
+										<img class="img-responsive" ng-src="{{url}}">
+									</a>
+								</li>
+								<li class="col-xs-3 col-md-3">
+									<div id="addBtn">
+										<a id="selectfiles" href="javascript:void(0);" class="btn">
+											<img id="add-img-btn" class="img-responsive" src="images/feedback_add_square.png">
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+				</div>
+				<div class="btn-frame col-xs-12" align="center">
+					<!--<input id="fileupload" type="file" style="FILTER: alpha(opacity=0); moz-opacity: 0; opacity: 0;" onchange="angular.element(this).scope().img_upload(this.files)" />-->
+					<a href="javascript:submitForm()" class="btn btn-primary">完成</a>
+				</div>
+				<input type="hidden" name="imgArr" value="{{imageArr.join(',')}}" />
+				<input type="hidden" name="userId" value="{{userId}}" />
+				<input type="hidden" name="companyId" value="{{companyId}}" />
+				</form>
+			</div>
+			</div>
+		</section>
+	</body>
+	<script src="js/jquery-1.10.2.min.js "></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/supportJS/ios-orientationchange-fix.js"></script>
+	<script src="js/supportJS/jquery.swipebox.js"></script>
+	<script type="text/javascript" src="js/supportJS/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+	<!--<script type="text/javascript" src="js/supportJS/OSS_Upload.js"></script>-->
+	<script src="js/supportJS/feedback.js"></script>
+
+	<script type="text/javascript ">
+		//图片点击放大
+		$(document).ready(function() {
+			/* Basic Gallery */
+			$('.swipebox').swipebox();
+		});
+		
+		function submitForm(){
+			$('#form').submit();
+		}
+
+		//多行文本输入框剩余字数计算  
+		function checkMaxInput(obj, maxLen) {
+			if(obj == null || obj == undefined || obj == " ") {
+				return;
+			}
+			if(maxLen == null || maxLen == undefined || maxLen == " ") {
+				maxLen = 100;
+			}
+
+			var strResult;
+			var $obj = $(obj);
+
+			if(obj.value.length > maxLen) { //如果输入的字数超过了限制  
+				obj.value = obj.value.substring(0, maxLen); //就去掉多余的字  
+				strResult = '<span id="max_msg " class=\'Max_msg pull-right\' >' + (obj.value.length) + '/200</span>'; //计算并显示剩余字数  
+			} else {
+				strResult = '<span id="max_msg " class=\'Max_msg pull-right\' >' + (obj.value.length) + '/200</span>'; //计算并显示剩余字数  
+			}
+
+			var $msg = $("#max_msg");
+			//          if ($msg.length == 0) {  
+			//              $obj.html(strResult);  
+			//          }  
+			//          else {  
+			$msg.html(strResult);
+			//          }  
+		}
+	</script>
+
+</html>
